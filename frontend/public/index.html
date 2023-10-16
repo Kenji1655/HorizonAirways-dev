@@ -27,13 +27,16 @@
         <label for="voos">Voos:</label>
         <input type="voos" id="voos" name="voos" required><br><br>
 
-        <input type="submit" id="cadastrar" value="Cadastrar">
     </form>
 
-    <script>
-        const inputCadastrar = document.querySelector('#cadastrar');
+    <div id ="container">
+        <button id="cadastrar">Cadastrar</button>
+    </div>
 
-        inputCadastrar.addEventListener('click', async function(){
+    <script>
+        const buttonCadastrar = document.querySelector('#cadastrar');
+
+        buttonCadastrar.addEventListener('click', async function(){
             try{
                 const response = await fetch('http://localhost:3000/user/cadastrar',{
                     method:'post'
@@ -41,7 +44,7 @@
                 console.log(await response.json())   
             }
             catch(error){
-                console.log(ERROR);
+                console.log(error);
             }
         })
 

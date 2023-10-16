@@ -1,13 +1,15 @@
 import express from 'express';
-
+import cors from 'cors';
 // routes 
 import home from '../routes/home';
-import cadastrar from '../routes/cadastrar';
+import user from '../routes/user';
 
 const app = express();
 
+app.use(cors());
+
 app.use('/', home);
-app.use('/', cadastrar);
+app.use('/user', user);
 
 app.listen(3000, function(){
     console.log('Server running...');
