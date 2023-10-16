@@ -3,11 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="" />
+    <title>Admin | Horizon Airlines</title>
+    <link rel="stylesheet" href="./assets/css/adminpage.css" />
 </head>
+
 <body>
-    <h2>oi</h2>
-    <script src="dist/index.js"></script>
+    <header>
+        <main>
+                <img src="./assets/img/logo-nome.png" width="162px" height="102px">
+        </main>
+    </header>
+    <h1>Admin</h1>
+    <form>
+        <label for="Aeronaves">Aeronaves:</label>
+        <input type="text" id="aeronaves" name="aeronaves" required><br><br>
+
+        <label for="cidades">Cidades:</label>
+        <input type="cidades" id="cidades" name="cidades" required><br><br>
+
+        <label for="trechos">Trechos:</label>
+        <input type="trechos" id="trechos" name="trechos" required><br><br>
+
+        <label for="voos">Voos:</label>
+        <input type="voos" id="voos" name="voos" required><br><br>
+
+        <input type="submit" id="cadastrar" value="Cadastrar">
+    </form>
+
+    <script>
+        const inputCadastrar = document.querySelector('#cadastrar');
+
+        inputCadastrar.addEventListener('click', async function(){
+            try{
+                const response = await fetch('http://localhost:3000/user/cadastrar',{
+                    method:'post'
+                });
+                console.log(await response.json())   
+            }
+            catch(error){
+                console.log(ERROR);
+            }
+        })
+
+        
+    </script>
+
+
 </body>
 </html>
