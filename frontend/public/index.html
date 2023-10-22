@@ -3,54 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Horizon Airlines</title>
-    <link rel="stylesheet" href="./assets/css/adminpage.css" />
+    <title>Admin|Horizon Airlines</title>
+    <!-- ICONES -->
+    <link 
+        rel="stylesheet" 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" 
+    />
+    <!-- FONTE -->
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap" 
+        rel="stylesheet"
+    >
+    <!-- CSS -->
+    <link 
+        rel="stylesheet" 
+        href="./assets/css/styles.css" 
+    />
 </head>
-
 <body>
-    <header>
-        <main>
-                <img src="./assets/img/logo-nome.png" width="162px" height="102px">
+    <div class="container">
+        <!-- HEADER -->
+        <header
+            class="header">
+            <div class="icone-menu" onclick="abrirSidebar()">
+                <span 
+                    class="material-symbols-outlined">
+                        menu
+                </span>
+            </div>
+            <div class="header-left">
+                <span class="material-symbols-outlined">
+                    home
+                </span>
+            </div>
+            <div class="header-right">
+                <span class="material-symbols-outlined">
+                    account_circle
+                </span>
+                <span class="material-symbols-outlined">
+                    logout
+                </span>
+            </div>
+            
+        </header>
+        <!-- FIM HEADER -->
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar">
+            <div c
+        </aside>
+        <!-- FIM SIDEBAR -->
+
+        <!-- MAIN -->
+        <main 
+            id="main-container">
         </main>
-    </header>
-    <h1>Admin</h1>
-    <form>
-        <label for="Aeronaves">Aeronaves:</label>
-        <input type="text" id="aeronaves" name="aeronaves" required><br><br>
-
-        <label for="cidades">Cidades:</label>
-        <input type="cidades" id="cidades" name="cidades" required><br><br>
-
-        <label for="trechos">Trechos:</label>
-        <input type="trechos" id="trechos" name="trechos" required><br><br>
-
-        <label for="voos">Voos:</label>
-        <input type="voos" id="voos" name="voos" required><br><br>
-
-    </form>
-
-    <div id ="container">
-        <button id="cadastrar">Cadastrar</button>
+        <!-- FIM MAIN -->
     </div>
-
-    <script>
-        const buttonCadastrar = document.querySelector('#cadastrar');
-
-        buttonCadastrar.addEventListener('click', async function(){
-            try{
-                const response = await fetch('http://localhost:3000/user/cadastrar',{
-                    method:'post'
-                });
-                console.log(await response.json())   
-            }
-            catch(error){
-                console.log(error);
-            }
-        })
-
-        
-    </script>
-
-
+    <!-- JS -->
+    <script src="./js/scripts.js"></script>
 </body>
 </html>
