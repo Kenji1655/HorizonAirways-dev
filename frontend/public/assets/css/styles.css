@@ -1,15 +1,20 @@
+/* Define estilos gerais para o corpo da página */
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: #e6e8ed;
   color: #666666;
-  font-family: "Moontserrat", sans-serif;
+  font-family: "Moontserrat", sans-serif; /* Define a fonte usada */
 }
+
+/* Estiliza um conjunto de ícones com alinhamento vertical e linha de altura reduzida */
 .material-symbols-outlined {
   vertical-align: middle;
   line-height: 1px;
 }
+
+/* Define classes para cores de texto específicas */
 .texto-primario {
   color: #666666;
 }
@@ -29,11 +34,13 @@ body {
 .texto-laranja {
   color: #f5b74f;
 }
+
+/* Define uma classe para fonte em negrito */
 .font-weight-bold {
   font-weight: 600;
 }
 
-
+/* Define estilos para um contêiner de layout usando o sistema de grid */
 .container {
   display: grid;
   grid-template-columns: 260px 1fr 1fr 1fr;
@@ -41,42 +48,85 @@ body {
   grid-template-areas: 
     "sidebar header header header"
     "sidebar main main main";
-  height: 100vh;
+  height: 100vh; /* Define a altura do contêiner como 100% da altura da viewport */
 }
 
 /* HEADER */
-
 .header {
   grid-area: header;
   height: 70px;
-  background-color: #ffffff;
+  background-color: #21232d;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 30px 0 30px;
-  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra ao cabeçalho */
 }
 
+/* Define estilos para um ícone de menu, mas está configurado para não ser exibido atualmente */
 .icone-menu {
   display: none;
 }
 
 /* SIDEBAR */
-
 #sidebar {
   grid-area: sidebar;
   height: 100%;
-  background-color: royalblue;
+  background-color: #ffffff;
   color: #9799ab;
-  overflow-y: auto;
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical se o conteúdo ultrapassar a altura */
   transition: all 0.5s;
-  -webkit-transition:all 0.5s;
+  -webkit-transition: all 0.5s;
+  box-shadow: 0 6px 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para o título na barra lateral */
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 20px 20px;
+  margin-bottom: 30px;
+}
+
+/* Define estilos para um logotipo na barra lateral */
+.sidebar-logo {
+  position: absolute;
+  top: -20px; /* Valor negativo para "elevar" a imagem */
+  left: 0;
+  z-index: 1; /* Controla a sobreposição de elementos */
+}
+
+.sidebar-title > span {
+  display: none;
+}
+
+.lista-sidebar {
+  padding: 0;
+  margin-top: 15px;
+  list-style-type: none; /*Pra não mostrar bolinha de lista */
+}
+
+/* Define estilos para os itens da lista na barra lateral */
+.sidebar-itens {
+  padding: 20px 20px 20px 20px;
+}
+
+/* Quando o mouse passa sobre um item da barra lateral, altera a cor de fundo e o cursor */
+.sidebar-itens:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Estilos para tornar os itens da barra lateral visíveis em dispositivos com telas menores */
+.sidebar-responsive {
+  display: inline !important;
+  position: absolute;
 }
 
 /* MAIN */
-
 .main-container {
   grid-area: main;
-  overflow-y: auto;
-  padding:20px 20px;
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical se o conteúdo ultrapassar a altura */
+  padding: 20px 20px;
 }
