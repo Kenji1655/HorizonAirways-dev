@@ -5,18 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-<!-- CSS -->
+    <title>Voos</title>
+    <!-- CSS -->
     <link 
         rel="stylesheet" 
         href="./assets/css/crud.css" 
-    />
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    >
+    <!-- ICONES -->
+    <link 
+      href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' 
+      rel='stylesheet'
+    >
     <!-- ICONES -->
     <link 
         rel="stylesheet" 
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" 
-    />
+    >
+    <!-- ICONE -->
+    <link 
+        rel="icon" 
+        href="./assets/img/logo.png"
+    >
 </head>
 
 <body>
@@ -35,8 +44,7 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Origem</th>
-              <th>Destino</th>
+              <th>Trecho</th>
               <th>Data</th>
               <th>Valor</th>
               <th>Assento</th>
@@ -55,11 +63,8 @@
             <label for="m-idpassagem">ID</label>
             <input id="m-idpassagem" type="text" required />
     
-            <label for="m-origem">Origem</label>
-            <input id="m-origem" type="text" required />
-
-            <label for="m-destino">Destino</label>
-            <input id="m-destino" type="text" required />
+            <label for="m-trecho">Trecho</label>
+            <input id="m-trecho" type="text" required />
     
             <label for="m-data">Data</label>
             <input id="m-data" type="date" required />

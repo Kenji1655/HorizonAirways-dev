@@ -1,8 +1,7 @@
 const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('tbody')
 const sId = document.querySelector('#m-idpassagem')
-const sOrigem = document.querySelector('#m-origem')
-const sDestino = document.querySelector('#m-destino')
+const sTrecho = document.querySelector('#m-trecho')
 const sData = document.querySelector('#m-data')
 const sValor = document.querySelector('#m-valor')
 const sAssento = document.querySelector('#m-assento')
@@ -26,16 +25,14 @@ function openModal(edit = false, index = 0) {
 
   if (edit) {
     sId.value = itens[index].idpassagem
-    sOrigem.value = itens[index].origem
-    sDestino.value = itens[index].destino
+    sTrecho.value = itens[index].trecho
     sData.value = itens[index].data
     sValor.value = itens[index].valor
     sAssento.value = itens[index].assento
     id = index
   } else {
     sId.value = ''
-    sOrigem.value = ''
-    sDestino.value = ''
+    sTrecho.value = ''
     sData.value = ''
     sValor.value = ''
     sAssento.value = ''
@@ -59,8 +56,7 @@ function insertItem(item, index) {
 
   tr.innerHTML = `
     <td>${item.idpassagem}</td>
-    <td>${item.origem}</td>
-    <td>${item.destino}</td>
+    <td>${item.trecho}</td>
     <td>${item.data}</td>
     <td>R$ ${item.valor}</td>
     <td>${item.assento}</td>
@@ -77,7 +73,7 @@ function insertItem(item, index) {
 
 btnSalvar.onclick = e => {
   
-  if (sId.value == '' || sOrigem.value == '' || sDestino.value == ''|| sData.value == ''|| sValor.value == ''|| sAssento.value == '') {
+  if (sId.value == '' || sTrecho.value == '' || sData.value == ''|| sValor.value == ''|| sAssento.value == '') {
     return
   }
 
@@ -85,13 +81,12 @@ btnSalvar.onclick = e => {
 
   if (id !== undefined) {
     itens[id].idpassagem = sId.value
-    itens[id].origem = sOrigem.value
-    itens[id].destino = sDestino.value
+    itens[id].trecho = sTrecho.value
     itens[id].data = sData.value
     itens[id].valor = sValor.value
     itens[id].assento = sAssento.value
   } else {
-    itens.push({'idpassagem': sId.value, 'origem': sOrigem.value, 'destino': sDestino.value, 'data': sData.value, 'valor': sValor.value, 'assento': sAssento.value})
+    itens.push({'idpassagem': sId.value, 'trecho': sTrecho.value, 'data': sData.value, 'valor': sValor.value, 'assento': sAssento.value})
   }
 
   setItensBD()

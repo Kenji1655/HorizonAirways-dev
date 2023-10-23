@@ -1,8 +1,10 @@
 const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('tbody')
+const sIdAeroporto = document.querySelector('#m-idaeroporto')
 const sAeroporto = document.querySelector('#m-aeroporto')
 const sCidade = document.querySelector('#m-cidade')
-const sTrecho = document.querySelector('#m-trecho')
+const sSigla = document.querySelector('#m-sigla')
+const sPais = document.querySelector('#m-pais')
 const btnSalvar = document.querySelector('#btnSalvar')
 
 let itens
@@ -24,12 +26,16 @@ function openModal(edit = false, index = 0) {
   if (edit) {
     sAeroporto.value = itens[index].aeroporto
     sCidade.value = itens[index].cidade
-    sTrecho.value = itens[index].trecho
+    sSigla.value = itens[index].sigla
+    sPais.value = itens[index].pais
+    sIdAeroporto.value = itens[index].idaeroporto
     id = index
   } else {
     sAeroporto.value = ''
     sCidade.value = ''
-    sTrecho.value = ''
+    sSigla.value = ''
+    sPais.value = ''
+    sIdAeroporto.value = ''
   }
   
 }
@@ -49,9 +55,11 @@ function insertItem(item, index) {
   let tr = document.createElement('tr')
 
   tr.innerHTML = `
+    <td>${item.idaeroporto}</td>
     <td>${item.aeroporto}</td>
+    <td>${item.sigla}</td>
     <td>${item.cidade}</td>
-    <td>${item.trecho}</td>
+    <td>${item.pais}</td>
     
     <td class="acao">
       <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
@@ -65,7 +73,7 @@ function insertItem(item, index) {
 
 btnSalvar.onclick = e => {
   
-  if  (sAeroporto.value == '' || sCidade.value == '' ||  sTrecho.value == '') {
+  if  (sAeroporto.value == '' || sCidade.value == '' ||  sSigla.value == ''||  sIdAeroporto.value == ''||  sPais.value == '') {
     return
   }
 
@@ -74,9 +82,11 @@ btnSalvar.onclick = e => {
   if (id !== undefined) {
     itens[id].aeroporto =sAeroporto.value
     itens[id].cidade = sCidade.value
-    itens[id].trecho =  sTrecho.value
+    itens[id].sigla =  sSigla.value
+    itens[id].idaeroporto =  sIdAeroporto.value
+    itens[id].pais =  sPais.value
   } else {
-    itens.push({'aeroporto': sAeroporto.value, 'cidade': sCidade.value, 'trecho':   sTrecho.value})
+    itens.push({'aeroporto': sAeroporto.value, 'cidade': sCidade.value, 'sigla':   sSigla.value,  'idaeroporto':   sIdAeroporto.value,  'pais':   sPais.value})
   }
 
   setItensBD()
