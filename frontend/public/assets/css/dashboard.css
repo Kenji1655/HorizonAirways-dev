@@ -45,7 +45,7 @@ body {
   display: grid;
   grid-template-columns: 260px 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 3fr;
-  grid-template-areas: 
+  grid-template-areas:
     "sidebar header header header"
     "sidebar main main main";
   height: 100vh; /* Define a altura do contêiner como 100% da altura da viewport */
@@ -125,7 +125,7 @@ body {
 .sidebar-itens:hover {
   background-color: rgba(0, 0, 0, 0.2);
   cursor: pointer;
-} 
+}
 
 /* Estilos para tornar os itens da barra lateral visíveis em dispositivos com telas menores */
 .sidebar-responsive {
@@ -210,6 +210,7 @@ body {
 .button:hover {
   background-color: #005bad;
 }
+<<<<<<< HEAD:frontend/public/assets/css/styles.css
 /* estilos da tabela crud */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
@@ -439,3 +440,6 @@ td button i {
 td button i:first-child {
   margin-right: 10px;
 }
+=======
+
+>>>>>>> 53e5fc5 (NOVOS ARQUIVOS CRUD):frontend/public/assets/css/dashboard.css
