@@ -8,6 +8,10 @@ const btnSalvar = document.querySelector('#btnSalvar')
 let itens
 let id
 
+function abrirPagina(pagina) {
+    window.location.href = pagina;
+}
+
 function openModal(edit = false, index = 0) {
   modal.classList.add('active')
 
@@ -94,3 +98,7 @@ const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? []
 const setItensBD = () => localStorage.setItem('dbfunc', JSON.stringify(itens))
 
 loadItens()
+
+document.getElementById("logout").addEventListener("click", function () {
+    abrirPagina("dashboard.html");
+});
