@@ -45,7 +45,7 @@
               <th>Cidade</th>
               <th>Pais</th>
               <th class="acao">Editar</th>
-              <th class="acao">Excluir</th>
+              <th class="acao" onclick="confirmarExclusao()">Excluir</th>
             </tr>
           </thead>
           <tbody>
@@ -61,10 +61,10 @@
 
             <label for="m-aeroporto">Aeroporto</label>
             <select name="m-aeroporto" id="m-aeroporto" required>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+                <option value="EMBRAER">EMBRAER</option>
+                <option value="Boeing">Boeing</option>
+                <option value="AirBus">AirBus</option>
+                <option value="Lockheed ">Lockheed</option>
               </select>
               <br>
             
@@ -88,6 +88,13 @@
         document.getElementById("logout").addEventListener("click", function () {
         abrirPagina("dashboard.html");
         });
+        function confirmarExclusao() {
+          if (confirm("Tem certeza de que deseja excluir este item?")) {
+            alert("Item excluído com sucesso!");} 
+          else {
+          alert("Exclusão cancelada.");
+          }
+}
     </script>
   </body>
   
