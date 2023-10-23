@@ -34,11 +34,18 @@
 
     <!-- Dropdown para selecionar um item -->
     <select id="selecionar-item">
-        <option value="-1">Selecione um item</option>
-    </select>
-
-    <!-- Lista de Itens do Banco de Dados -->
-    <ul id="lista-itens"></ul>
+        <div  class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown link
+            </a>
+            <option value="-1">Selecione um item</option>
+             <!-- Lista de Itens do Banco de Dados -->
+            <ul id="lista-itens" class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
 
     <script>
         // Simulação de um banco de dados em memória
