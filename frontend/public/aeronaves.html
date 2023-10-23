@@ -1,90 +1,103 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passagens Aéreas</title>
+    <title>Aeronaves</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
+        .button-container {
             text-align: center;
-            padding: 20px 0;
-        }
-
-        h1 {
-            margin: 0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-bottom: 10px;
-        }
-
-        input[type="text"], input[type="date"], select {
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        input[type="submit"] {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #555;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Passagens Aéreas</h1>
-    </header>
-    <div class="container">
-        <h2>Encontre sua passagem</h2>
-        <form>
-            <label for="origem">Origem:</label>
-            <input type="text" id="origem" name="origem" required>
+    <h1>Menu de CRUD</h1>
 
-            <label for="destino">Destino:</label>
-            <input type="text" id="destino" name="destino" required>
-
-            <label for="data">Data de partida:</label>
-            <input type="date" id="data" name="data" required>
-
-            <label for="classe">Classe:</label>
-            <select id="classe" name="classe">
-                <option value="economica">Econômica</option>
-                <option value="executiva">Executiva</option>
-                <option value="primeira-classe">Primeira Classe</option>
-            </select>
-
-            <input type="submit" value="Buscar Passagem">
-        </form>
+    <!-- Botões do Menu -->
+    <div class="button-container">
+        <button id="cadastrar">Cadastrar</button>
+        <button id="editar">Editar</button>
+        <button id="excluir">Excluir</button>
     </div>
+
+    <!-- Dropdown para selecionar um item -->
+    <select id="selecionar-item">
+        <option value="-1">Selecione um item</option>
+    </select>
+
+    <!-- Lista de Itens do Banco de Dados -->
+    <ul id="lista-itens"></ul>
+
+    <script>
+        // Simulação de um banco de dados em memória
+        const database = [
+            { id: 1, nome: "Item 1" },
+            { id: 2, nome: "Item 2" },
+            { id: 3, nome: "Item 3" }
+        ];
+
+        // Função para preencher o dropdown com os itens
+        function preencherDropdown() {
+            const dropdown = document.getElementById("selecionar-item");
+            dropdown.innerHTML = '<option value="-1">Selecione um item</option>';
+
+            database.forEach(item => {
+                const option = document.createElement("option");
+                option.value = item.id;
+                option.textContent = `ID: ${item.id}, Nome: ${item.nome}`;
+                dropdown.appendChild(option);
+            });
+        }
+
+        // Função para exibir os itens na lista
+        function exibirItens() {
+            const listaItens = document.getElementById("lista-itens");
+            listaItens.innerHTML = ""; // Limpa a lista
+
+            database.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `ID: ${item.id}, Nome: ${item.nome}`;
+                listaItens.appendChild(li);
+            });
+        }
+
+        // Adiciona um evento de clique aos botões
+        const cadastrarButton = document.getElementById("cadastrar");
+        cadastrarButton.addEventListener("click", () => {
+            const novoItem = { id: database.length + 1, nome: "Novo Item" };
+            database.push(novoItem);
+            preencherDropdown();
+            exibirItens();
+        });
+
+        const editarButton = document.getElementById("editar");
+        editarButton.addEventListener("click", () => {
+            const selectedItemId = document.getElementById("selecionar-item").value;
+            const selectedItem = database.find(item => item.id === Number(selectedItemId));
+
+            if (selectedItem) {
+                // Simulação de edição do item selecionado
+                selectedItem.nome = "Item Editado";
+                exibirItens();
+            }
+        });
+
+        const excluirButton = document.getElementById("excluir");
+        excluirButton.addEventListener("click", () => {
+            const selectedItemId = document.getElementById("selecionar-item").value;
+            const selectedItemIndex = database.findIndex(item => item.id === Number(selectedItemId));
+
+            if (selectedItemIndex !== -1) {
+                // Simulação de exclusão do item selecionado
+                database.splice(selectedItemIndex, 1);
+                preencherDropdown();
+                exibirItens();
+            }
+        });
+
+        // Exibe os itens e preenche o dropdown ao carregar a página
+        preencherDropdown();
+        exibirItens();
+    </script>
 </body>
 </html>

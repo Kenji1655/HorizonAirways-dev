@@ -3,9 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Voos</title>
+    <style>
+        .button-container {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>hello</h1>
+    <h1>Menu de CRUD</h1>
+
+    <!-- Botões do Menu -->
+    <div class="button-container">
+        <button id="cadastrar">Cadastrar</button>
+        <button id="editar">Editar</button>
+        <button id="excluir">Excluir</button>
+    </div>
+
+    <!-- Dropdown para selecionar um item -->
+    <select id="selecionar-item">
+        <option value="-1">Selecione um item</option>
+    </select>
+
+    <!-- Lista de Itens do Banco de Dados -->
+    <ul id="lista-itens"></ul>
+
+    <script>
+        // Simulação de um banco de dados em memória
+        const database = [
+            { id: 1, nome: "Item 1" },
+            { id: 2, nome: "Item 2" },
+            { id: 3, nome: "Item 3" }
+        ];
+
+        // Função para preencher o dropdown com os itens
+        function preencherDropdown() {
+            const dropdown = document.getElementById("selecionar-item");
+            dropdown.innerHTML = '<option value="-1">Selecione um item</option>';
+
+            database.forEach(item => {
+                const option = document.createElement("option");
+                option.value = item.id;
+                option.textContent = `ID: ${item.id}, Nome: ${item.nome}`;
+                dropdown.appendChild(option);
+            });
+        }
+
+        // Função para exibir os itens na lista
+        function exibirItens() {
+            const listaItens = document.getElementById("lista-itens");
+            listaItens.innerHTML = ""; // Limpa a lista
+
+            database.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `ID: ${item.id}, Nome: ${item.nome}`;
+                listaItens.appendChild(li);
+            });
+        }
+
+        // Adiciona um evento de clique aos botões
+        const cadastrarButton = document.getElementById("cadastrar");
+        cadastrarButton.addEventListener("click", () => {
+            const novoItem = { id: database.length + 1, nome: "Novo Item" };
+            database.push(novoItem);
+            preencherDropdown();
+            exibirItens();
+        });
+
+        const editarButton = document.getElementById("editar");
+        editarButton.addEventListener("click", () => {
+            const selectedItemId = document.getElementById("selecionar-item").value;
+            const selectedItem = database.find(item => item.id === Number(selectedItemId));
+
+            if (selectedItem) {
+                // Simulação de edição do item selecionado
+                selectedItem.nome = "Item Editado";
+                exibirItens();
+            }
+        });
+
+        const excluirButton = document.getElementById("excluir");
+        excluirButton.addEventListener("click", () => {
+            const selectedItemId = document.getElementById("selecionar-item").value;
+            const selectedItemIndex = database.findIndex(item => item.id === Number(selectedItemId));
+
+            if (selectedItemIndex !== -1) {
+                // Simulação de exclusão do item selecionado
+                database.splice(selectedItemIndex, 1);
+                preencherDropdown();
+                exibirItens();
+            }
+        });
+
+        // Exibe os itens e preenche o dropdown ao carregar a página
+        preencherDropdown();
+        exibirItens();
+    </script>
 </body>
 </html>
