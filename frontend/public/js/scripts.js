@@ -30,3 +30,8 @@ document.getElementById("aeroportos-sidebar").addEventListener("click", function
 document.getElementById("voos-sidebar").addEventListener("click", function () {
     abrirPagina("voos.html");
 });
+
+//função logout
+document.getElementById("logout").addEventListener("click", function () {
+    abrirPagina("dashboard.html");
+});

@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aeroportos e Cidades</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
     <style>
         .button-container {
             text-align: center;
@@ -12,10 +18,11 @@
 </head>
 <body>
     <header class="header">
+        <div class="sidebar-logo">
+            <img src="./assets/img/logo-nome.png" width="162px" height="102px">
+        </div>
             <div class="header-left">
-                <span class="material-symbols-outlined">
-                    home
-                </span>
+                <h1>                    Aeroportos e Cidades                </h1>
             </div>
             <div class="header-right">
                 <span class="material-symbols-outlined">
@@ -30,18 +37,27 @@
 
     <!-- Botões do Menu -->
     <div class="button-container">
-        <button id="cadastrar">Cadastrar</button>
-        <button id="editar">Editar</button>
-        <button id="excluir">Excluir</button>
+        <button id="cadastrar" type="button" class="btn btn-primary">Cadastrar</button>
+        <button id="editar" type="button" class="btn btn-primary">Editar</button>
+        <button id="excluir" type="button" class="btn btn-danger">Excluir</button>
+        <button id="logout" type="button" class="btn btn-dark">Logout</button>
     </div>
 
     <!-- Dropdown para selecionar um item -->
     <select id="selecionar-item">
-        <option value="-1">Selecione um item</option>
-    </select>
-
-    <!-- Lista de Itens do Banco de Dados -->
-    <ul id="lista-itens"></ul>
+        <div  class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown link
+            </a>
+            <option value="-1">Selecione um item</option>
+             <!-- Lista de Itens do Banco de Dados -->
+            <ul id="lista-itens" class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+    </select>   
 
     <script>
         // Simulação de um banco de dados em memória
@@ -77,6 +93,10 @@
         }
 
         // Adiciona um evento de clique aos botões
+        //função logout
+        document.getElementById("logout").addEventListener("click", function () {
+            abrirPagina("dashboard.html");
+        });
         const cadastrarButton = document.getElementById("cadastrar");
         cadastrarButton.addEventListener("click", () => {
             const novoItem = { id: database.length + 1, nome: "Novo Item" };
