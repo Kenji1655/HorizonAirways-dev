@@ -19,6 +19,16 @@ O projeto faz uso das seguintes tecnologias:
 ### Banco de Dados:
 - Oracle
 
+## Passo a passo para instalação:
+- Clone o repositório do GitHub na sua máquina;
+- Conecte-se ao VPN da PUC;
+- Abra um terminal no VSCode e rode "cd frontend", e depois "npm install";
+- Feche o terminal e abra outro terminal, então rode o comando "cd backend", e depois "npm install";
+- Rode "npm start" para iniciar o servidor HTTP, ainda no diretório do backend;
+- Aguarde alguns segundos até o retorno no terminal "Servidor HTTP funcionando...";
+- Siga o seguinte caminho de pastas: "HorizonAirways-dev\frontend\public", e selecione o arquivo "dashboard.html".
+- Com o arquivo selecionado, inicie um servidor em "Live Server" no canto inferior direito do VSCode (certifique-se de ter a extensão Live Server instalada);
+
 ## Alunos Responsáveis pelo Projeto
 
 O projeto é desenvolvido por uma equipe composta pelos seguintes alunos:
