@@ -10,7 +10,23 @@ function abrirSidebar() {
 
 function fecharSidebar(){
     if(abrirSidebar) {
-        sidebar.classList.remove("sidebar-responsive");
-        abrirSidebar = false;
     }
 }
+
+
+function abrirPagina(pagina) {
+    window.location.href = pagina;
+}
+
+// Event listeners para os itens da sidebar
+document.getElementById("aeronaves-sidebar").addEventListener("click", function () {
+    abrirPagina("aeronaves.html");
+});
+
+document.getElementById("aeroportos-sidebar").addEventListener("click", function () {
+    abrirPagina("aeroportos.html");
+});
+
+document.getElementById("voos-sidebar").addEventListener("click", function () {
+    abrirPagina("voos.html");
+});

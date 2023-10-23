@@ -125,7 +125,7 @@ body {
 .sidebar-itens:hover {
   background-color: rgba(0, 0, 0, 0.2);
   cursor: pointer;
-}
+} 
 
 /* Estilos para tornar os itens da barra lateral visíveis em dispositivos com telas menores */
 .sidebar-responsive {
@@ -193,4 +193,20 @@ body {
 
 .card-dentro > span {
   font-size: 35px;
+}
+
+.button {
+  background-color: #0073e6;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin: 2px;
+}
+
+.button:hover {
+  background-color: #005bad;
 }

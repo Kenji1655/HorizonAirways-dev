@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin|Horizon Airlines</title>
+    <!-- BOOTSTRAP -->
+    <!-- <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+        crossorigin="anonymous"
+    > -->
     <!-- ICONES -->
     <link 
         rel="stylesheet" 
@@ -58,17 +65,20 @@
             </div>
 
             <ul class="lista-sidebar">
-                <li class="sidebar-itens">
-                    <button class="material-symbols-outlined">airlines</button>Aeronaves Operantes
+                <li class="sidebar-itens" id="aeronaves-sidebar">
+                    <span class="material-symbols-outlined">airlines</span>
+                    Aeronaves Operantes
+                </li>
+                <li class="sidebar-itens" id="aeroportos-sidebar">
+                    <span class="material-symbols-outlined">connecting_airports</span>
+                    Aeroportos e Cidades
+                </li>
+                <li class="sidebar-itens" id="voos-sidebar">
+                    <span class="material-symbols-outlined">airplane_ticket</span>
+                    Voos
                 </li>
                 <li class="sidebar-itens">
-                    <button class="material-symbols-outlined">connecting_airports</button> Aeroportos e Cidades
-                </li>
-                <li class="sidebar-itens">
-                    <button class="material-symbols-outlined">airplane_ticket</button> Voos
-                </li>
-                <li class="sidebar-itens">
-                    <button class="material-symbols-outlined">settings</button> Configuraçoẽs
+                    <span type="button" class="btn btn-outline-secondary">Configuracoes</span>
                 </li>
                 
             </ul>

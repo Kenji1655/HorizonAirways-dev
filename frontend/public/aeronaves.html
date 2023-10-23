@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passagens Aéreas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="date"], select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Passagens Aéreas</h1>
+    </header>
+    <div class="container">
+        <h2>Encontre sua passagem</h2>
+        <form>
+            <label for="origem">Origem:</label>
+            <input type="text" id="origem" name="origem" required>
+
+            <label for="destino">Destino:</label>
+            <input type="text" id="destino" name="destino" required>
+
+            <label for="data">Data de partida:</label>
+            <input type="date" id="data" name="data" required>
+
+            <label for="classe">Classe:</label>
+            <select id="classe" name="classe">
+                <option value="economica">Econômica</option>
+                <option value="executiva">Executiva</option>
+                <option value="primeira-classe">Primeira Classe</option>
+            </select>
+
+            <input type="submit" value="Buscar Passagem">
+        </form>
+    </div>
+</body>
+</html>
