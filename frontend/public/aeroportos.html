@@ -1,130 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aeroportos e Cidades</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
+    <title></title>
+<!-- CSS -->
+    <link 
+        rel="stylesheet" 
+        href="./assets/css/crud.css" 
     />
-    <style>
-        .button-container {
-            text-align: center;
-        }
-    </style>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ICONES -->
+    <link 
+        rel="stylesheet" 
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" 
+    />
 </head>
+
 <body>
-    <header class="header">
-        <div class="sidebar-logo">
-            <img src="./assets/img/logo-nome.png" width="162px" height="102px">
+    <div class="container">
+      <div class="header">
+        <span class="material-symbols-outlined">connecting_airports</span>Aeroportos e Cidades
+        <button onclick="openModal()" id="new">Incluir</i></button>
+        <button id="logout">logout</button>
+      </div>
+  
+      <div class="divTable">
+        <table>
+          <thead>
+            <tr>
+              <th>Aeroporto</th>
+              <th>Cidade</th>
+              <th>Trecho</th>
+              <th class="acao">Editar</th>
+              <th class="acao">Excluir</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+  
+      <div class="modal-container">
+        <div class="modal">
+          <form>
+            <label for="m-aeroporto">Aeroporto</label>
+            <select name="m-aeroporto" id="m-aeroporto" required>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </select>
+              <br>
+    
+            <label for="m-cidade">Cidade</label>
+            <input id="m-cidade" type="text" required />
+
+            <label for="m-trecho">Trecho</label>
+            <input id="m-trecho" type="text" required />
+    
+            <button id="btnSalvar">Salvar</button>
+          </form>
         </div>
-            <div class="header-left">
-                <h1>                    Aeroportos e Cidades                </h1>
-        </header>
-
-    <!-- Botões do Menu --> 
-    <div class="button-container">
-        <button id="cadastrar" type="button" class="btn btn-primary">Cadastrar</button>
-        <button id="editar" type="button" class="btn btn-primary">Editar</button>
-        <button id="excluir" type="button" class="btn btn-danger">Excluir</button>
-        <button id="logout" type="button" class="btn btn-dark">Logout</button>
+      </div>
+  
     </div>
-
-    <!-- Dropdown para selecionar um item -->
-    <select id="selecionar-item">
-        <div  class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown link
-            </a>
-            <option value="-1">Selecione um item</option>
-             <!-- Lista de Itens do Banco de Dados -->
-            <ul id="lista-itens" class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
-    </select>   
-
+    <script src="./js/aeroportos.js"></script>
     <script>
-        // Simulação de um banco de dados em memória
-        const database = [
-            { id: 1, nome: "Item 1" },
-            { id: 2, nome: "Item 2" },
-            { id: 3, nome: "Item 3" }
-        ];
-
-        // Função para preencher o dropdown com os itens
-        function preencherDropdown() {
-            const dropdown = document.getElementById("selecionar-item");
-            dropdown.innerHTML = '<option value="-1">Selecione um item</option>';
-
-            database.forEach(item => {
-                const option = document.createElement("option");
-                option.value = item.id;
-                option.textContent = `ID: ${item.id}, Nome: ${item.nome}`;
-                dropdown.appendChild(option);
-            });
-        }
-
-        // Função para exibir os itens na lista
-        function exibirItens() {
-            const listaItens = document.getElementById("lista-itens");
-            listaItens.innerHTML = ""; // Limpa a lista
-
-            database.forEach(item => {
-                const li = document.createElement("li");
-                li.textContent = `ID: ${item.id}, Nome: ${item.nome}`;
-                listaItens.appendChild(li);
-            });
-        }
-
-        // Adiciona um evento de clique aos botões
-        //função logout
         document.getElementById("logout").addEventListener("click", function () {
-            abrirPagina("dashboard.html");
+        abrirPagina("dashboard.html");
         });
-        const cadastrarButton = document.getElementById("cadastrar");
-        cadastrarButton.addEventListener("click", () => {
-            const novoItem = { id: database.length + 1, nome: "Novo Item" };
-            database.push(novoItem);
-            preencherDropdown();
-            exibirItens();
-        });
-
-        const editarButton = document.getElementById("editar");
-        editarButton.addEventListener("click", () => {
-            const selectedItemId = document.getElementById("selecionar-item").value;
-            const selectedItem = database.find(item => item.id === Number(selectedItemId));
-
-            if (selectedItem) {
-                // Simulação de edição do item selecionado
-                selectedItem.nome = "Item Editado";
-                exibirItens();
-            }
-        });
-
-        const excluirButton = document.getElementById("excluir");
-        excluirButton.addEventListener("click", () => {
-            const selectedItemId = document.getElementById("selecionar-item").value;
-            const selectedItemIndex = database.findIndex(item => item.id === Number(selectedItemId));
-
-            if (selectedItemIndex !== -1) {
-                // Simulação de exclusão do item selecionado
-                database.splice(selectedItemIndex, 1);
-                preencherDropdown();
-                exibirItens();
-            }
-        });
-
-        // Exibe os itens e preenche o dropdown ao carregar a página
-        preencherDropdown();
-        exibirItens();
     </script>
-    <!-- JS -->
-    <script src="./js/scripts.js"></script>
-</body>
-</html>
+  </body>
+  
+  </html>

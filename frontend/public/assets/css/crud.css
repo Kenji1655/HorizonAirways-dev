@@ -20,6 +20,11 @@ button {
   cursor: pointer;
 }
 
+label {
+  display: block;
+  margin-bottom: 5px; /* Adicione margem inferior para separação */
+}
+
 .container {
   width: 90%;
   height: 80%;
