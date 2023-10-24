@@ -1,4 +1,7 @@
 import { Aeronave } from "./Aeronave";
+import { Aeroporto } from "./Aeroporto";
+import { Voo } from "./Voo";
+import { Trecho } from "./Trecho";
 
 export function aeronaveValida(aero: Aeronave) {
 
@@ -37,7 +40,90 @@ export function aeronaveValida(aero: Aeronave) {
     mensagem = "Referência da aeronave não fornecida.";
   }
 
-  // se passou em toda a validação.
+  if(mensagem === ""){
+    valida = true;
+  }
+
+  return [valida, mensagem] as const;
+}
+
+export function aeroportoValida(aero: Aeroporto) {
+
+  let valida = false;
+  let mensagem = "";
+
+  if(aero.nome === undefined){
+    mensagem = "Nome não informado";
+  }
+
+  if(aero.sigla === undefined){
+    mensagem = "Sigla não informada.";
+  }
+
+  if(aero.cidade === undefined){
+    mensagem = "Cidade não informada";
+  }
+
+  if(aero.pais === undefined){
+    mensagem = "País não informado";
+  }
+
+  if(mensagem === ""){
+    valida = true;
+  }
+
+  return [valida, mensagem] as const;
+}
+
+export function VooValida(aero: Voo) {
+
+  let valida = false;
+  let mensagem = "";
+
+  if(aero.trecho === undefined){
+    mensagem = "Trecho não informado";
+  }
+
+  if(aero.data === undefined){
+    mensagem = "Data não informada.";
+  }
+
+  if(aero.valor === undefined){
+    mensagem = "Valor não informado";
+  }
+
+  if(aero.assento === undefined){
+    mensagem = "Assento não informado";
+  }
+
+  if(mensagem === ""){
+    valida = true;
+  }
+
+  return [valida, mensagem] as const;
+}
+
+export function TrechoValida(aero: Trecho) {
+
+  let valida = false;
+  let mensagem = "";
+
+  if(aero.nome === undefined){
+    mensagem = "Nome não informado";
+  }
+
+  if(aero.origem === undefined){
+    mensagem = "Origem não informada.";
+  }
+
+  if(aero.destino === undefined){
+    mensagem = "Destino não informado";
+  }
+
+  if(aero.aeronave === undefined){
+    mensagem = "Aeronave não informada";
+  }
+
   if(mensagem === ""){
     valida = true;
   }

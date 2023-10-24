@@ -8,12 +8,6 @@
 - Com o arquivo selecionado, inicie um servidor em "Live Server" no canto inferior direito do VSCode (certifique-se de ter a extensão Live Server instalada);
 
 
-# Informações do Projeto - HorizonAirways-dev
-
-O Projeto Integrador 2 é um componente curricular que tem como principal objetivo integrar os conhecimentos adquiridos ao longo do semestre em diversos componentes curriculares. Os alunos envolvidos no projeto têm a oportunidade de aplicar conceitos de programação para a web, banco de dados, processos de Engenharia, estrutura de dados e algoritmos de programação. Além disso, o projeto visa motivar a busca por novos conhecimentos que agregam valor à gestão da equipe, incluindo habilidades como planejamento, desenvolvimento, documentação e apresentação de um projeto, bem como a vivência diária como uma equipe de projeto.
-
-Neste projeto, o papel do professor orientador é atuar como diretor das equipes, oferecendo orientação sobre como as equipes podem alcançar os resultados esperados. O professor acompanhará as equipes na gestão do próprio projeto, esclarecendo dúvidas em relação ao escopo e orientando os grupos na direção a seguir. No entanto, não é papel do professor orientador da disciplina programar junto com a equipe, resolver problemas técnicos ou dúvidas técnicas. As equipes são incentivadas a serem autogerenciáveis no aspecto técnico.
-
 ## Tecnologias do Projeto
 
 O projeto faz uso das seguintes tecnologias:
