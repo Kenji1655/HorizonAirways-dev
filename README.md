@@ -7,7 +7,6 @@
 - Siga o seguinte caminho de pastas: "HorizonAirways-dev\frontend\public", e selecione o arquivo "dashboard.html".
 - Com o arquivo selecionado, inicie um servidor em "Live Server" no canto inferior direito do VSCode (certifique-se de ter a extensão Live Server instalada);
 
-
 ## Tecnologias do Projeto
 
 O projeto faz uso das seguintes tecnologias:
