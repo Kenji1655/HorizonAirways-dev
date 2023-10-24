@@ -1,3 +1,14 @@
+## Passo a passo para instalação:
+- Clone o repositório do GitHub na sua máquina;
+- Conecte-se ao VPN da PUC;
+- Abra um terminal no VSCode e rode "cd frontend", e depois "npm install";
+- Feche o terminal e abra outro terminal, então rode o comando "cd backend", e depois "npm install";
+- Rode "npm start" para iniciar o servidor HTTP, ainda no diretório do backend;
+- Aguarde alguns segundos até o retorno no terminal "Servidor HTTP funcionando...";
+- Siga o seguinte caminho de pastas: "HorizonAirways-dev\frontend\public", e selecione o arquivo "dashboard.html".
+- Com o arquivo selecionado, inicie um servidor em "Live Server" no canto inferior direito do VSCode (certifique-se de ter a extensão Live Server instalada);
+
+
 # Informações do Projeto - HorizonAirways-dev
 
 O Projeto Integrador 2 é um componente curricular que tem como principal objetivo integrar os conhecimentos adquiridos ao longo do semestre em diversos componentes curriculares. Os alunos envolvidos no projeto têm a oportunidade de aplicar conceitos de programação para a web, banco de dados, processos de Engenharia, estrutura de dados e algoritmos de programação. Além disso, o projeto visa motivar a busca por novos conhecimentos que agregam valor à gestão da equipe, incluindo habilidades como planejamento, desenvolvimento, documentação e apresentação de um projeto, bem como a vivência diária como uma equipe de projeto.
@@ -18,16 +29,6 @@ O projeto faz uso das seguintes tecnologias:
 
 ### Banco de Dados:
 - Oracle
-
-## Passo a passo para instalação:
-- Clone o repositório do GitHub na sua máquina;
-- Conecte-se ao VPN da PUC;
-- Abra um terminal no VSCode e rode "cd frontend", e depois "npm install";
-- Feche o terminal e abra outro terminal, então rode o comando "cd backend", e depois "npm install";
-- Rode "npm start" para iniciar o servidor HTTP, ainda no diretório do backend;
-- Aguarde alguns segundos até o retorno no terminal "Servidor HTTP funcionando...";
-- Siga o seguinte caminho de pastas: "HorizonAirways-dev\frontend\public", e selecione o arquivo "dashboard.html".
-- Com o arquivo selecionado, inicie um servidor em "Live Server" no canto inferior direito do VSCode (certifique-se de ter a extensão Live Server instalada);
 
 ## Alunos Responsáveis pelo Projeto
 

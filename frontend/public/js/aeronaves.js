@@ -1,10 +1,10 @@
 const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('tbody')
-const sId = document.querySelector('#m-idaero')
 const sModelo = document.querySelector('#m-modelo')
 const sFabricante = document.querySelector('#m-fabricante')
 const sAnoFabricacao = document.querySelector('#m-anoFabricacao')
 const sNumeroAssentos = document.querySelector('#m-numeroAssentos')
+const sReferencia = document.querySelector('#m-referencia')
 const btnSalvar = document.querySelector('#btnSalvar')
 
 let itens
@@ -24,18 +24,18 @@ function openModal(edit = false, index = 0) {
   }
 
   if (edit) {
-    sId.value = itens[index].idaero
     sModelo.value = itens[index].modelo
     sFabricante.value = itens[index].fabricante
     sAnoFabricacao.value = itens[index].anoFabricacao
     sNumeroAssentos.value = itens[index].numeroAssentos
+    sReferencia.value = itens[index].referencia
     id = index
   } else {
-    sId.value = ''
     sModelo.value = ''
     sFabricante.value = ''
     sAnoFabricacao.value = ''
     sNumeroAssentos.value = ''
+    sReferencia.value = ''
   }
   
 }
@@ -55,11 +55,11 @@ function insertItem(item, index) {
   let tr = document.createElement('tr')
 
   tr.innerHTML = `
-    <td>${item.idaero}</td>
     <td>${item.modelo}</td>
     <td>${item.fabricante}</td>
     <td>${item.anoFabricacao}</td>
     <td>${item.numeroAssentos}</td>
+    <td>${item.referencia}</td>
     
     <td class="acao">
       <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
@@ -73,20 +73,20 @@ function insertItem(item, index) {
 
 btnSalvar.onclick = e => {
   
-  if (sId.value == '' || sModelo.value == '' || sFabricante.value == ''|| sAnoFabricacao.value == ''|| sNumeroAssentos.value == '') {
+  if (sModelo.value == '' || sFabricante.value == ''|| sAnoFabricacao.value == '' || sNumeroAssentos.value == '' || sReferencia.value == '') {
     return
   }
 
   e.preventDefault();
 
   if (id !== undefined) {
-    itens[id].idaero = sId.value
     itens[id].modelo = sModelo.value
     itens[id].fabricante = sFabricante.value
     itens[id].anoFabricacao = sAnoFabricacao.value
     itens[id].numeroAssentos = sNumeroAssentos.value
+    itens[id].referencia = sReferencia.value
   } else {
-    itens.push({'idaero': sId.value, 'modelo': sModelo.value, 'fabricante': sFabricante.value, 'anoFabricacao': sAnoFabricacao.value, 'numeroAssentos': sNumeroAssentos.value})
+    itens.push({'modelo': sModelo.value, 'fabricante': sFabricante.value, 'anoFabricacao': sAnoFabricacao.value, 'numeroAssentos': sNumeroAssentos.value, 'referencia': sReferencia.value})
   }
 
   setItensBD()

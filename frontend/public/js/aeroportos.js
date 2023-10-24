@@ -1,6 +1,5 @@
 const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('tbody')
-const sIdAeroporto = document.querySelector('#m-idaeroporto')
 const sAeroporto = document.querySelector('#m-aeroporto')
 const sCidade = document.querySelector('#m-cidade')
 const sSigla = document.querySelector('#m-sigla')
@@ -28,14 +27,12 @@ function openModal(edit = false, index = 0) {
     sCidade.value = itens[index].cidade
     sSigla.value = itens[index].sigla
     sPais.value = itens[index].pais
-    sIdAeroporto.value = itens[index].idaeroporto
     id = index
   } else {
     sAeroporto.value = ''
     sCidade.value = ''
     sSigla.value = ''
     sPais.value = ''
-    sIdAeroporto.value = ''
   }
   
 }
@@ -55,7 +52,6 @@ function insertItem(item, index) {
   let tr = document.createElement('tr')
 
   tr.innerHTML = `
-    <td>${item.idaeroporto}</td>
     <td>${item.aeroporto}</td>
     <td>${item.sigla}</td>
     <td>${item.cidade}</td>
@@ -73,7 +69,7 @@ function insertItem(item, index) {
 
 btnSalvar.onclick = e => {
   
-  if  (sAeroporto.value == '' || sCidade.value == '' ||  sSigla.value == ''||  sIdAeroporto.value == ''||  sPais.value == '') {
+  if  (sAeroporto.value == '' || sCidade.value == '' ||  sSigla.value == ''|| sPais.value == '') {
     return
   }
 
@@ -83,10 +79,9 @@ btnSalvar.onclick = e => {
     itens[id].aeroporto =sAeroporto.value
     itens[id].cidade = sCidade.value
     itens[id].sigla =  sSigla.value
-    itens[id].idaeroporto =  sIdAeroporto.value
     itens[id].pais =  sPais.value
   } else {
-    itens.push({'aeroporto': sAeroporto.value, 'cidade': sCidade.value, 'sigla':   sSigla.value,  'idaeroporto':   sIdAeroporto.value,  'pais':   sPais.value})
+    itens.push({'aeroporto': sAeroporto.value, 'cidade': sCidade.value, 'sigla':   sSigla.value, 'pais':   sPais.value})
   }
 
   setItensBD()

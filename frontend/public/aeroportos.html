@@ -39,7 +39,6 @@
         <table>
           <thead>
             <tr>
-              <th>ID</th>
               <th>Aeroporto</th>
               <th>Sigla</th>
               <th>Cidade</th>
@@ -56,17 +55,8 @@
       <div class="modal-container">
         <div class="modal">
           <form>
-            <label for="m-idaeroporto">ID</label>
-            <input id="m-idaeroporto" type="text" required />
-
             <label for="m-aeroporto">Aeroporto</label>
-            <select name="m-aeroporto" id="m-aeroporto" required>
-                <option value="EMBRAER">EMBRAER</option>
-                <option value="Boeing">Boeing</option>
-                <option value="AirBus">AirBus</option>
-                <option value="Lockheed ">Lockheed</option>
-              </select>
-              <br>
+            <input id="m-aeroporto" type="text" required />
             
             <label for="m-sigla">Sigla</label>
             <input id="m-sigla" type="text" required />
@@ -83,7 +73,6 @@
       </div>
   
     </div>
-    <script src="./js/aeroportos.js"></script>
     <script>
         document.getElementById("logout").addEventListener("click", function () {
         abrirPagina("dashboard.html");
@@ -94,8 +83,9 @@
           else {
           alert("Exclusão cancelada.");
           }
-}
+        }
     </script>
+    <script src="./js/aeroportos.js"></script>
   </body>
   
   </html>

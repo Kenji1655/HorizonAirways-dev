@@ -43,11 +43,11 @@
         <table>
           <thead>
             <tr>
-              <th>ID</th>
               <th>Modelo</th>
               <th>Fabricante</th>
               <th>Ano de fabricação</th>
               <th>Numero de Assentos</th>
+              <th>Referência</th>
               <th class="acao">Editar</th>
               <th class="acao">Excluir</th>
             </tr>
@@ -60,32 +60,38 @@
       <div class="modal-container">
         <div class="modal">
           <form>
-            <label for="m-idaero">ID</label>
-            <input id="m-idaero" type="text" required />
-    
             <label for="m-modelo">Modelo</label>
             <input id="m-modelo" type="text" required />
 
             <label for="m-fabricante">Fabricante</label>
-            <input id="m-fabricante" type="text" required />
+            <select name="m-fabricante" id="m-fabricante" required>
+                <option value="EMBRAER">EMBRAER</option>
+                <option value="Boeing">Boeing</option>
+                <option value="AirBus">AirBus</option>
+                <option value="Lockheed ">Lockheed</option>
+              </select>
+              <br><br>
     
             <label for="m-anoFabricacao">Ano de fabricação</label>
             <input id="m-anoFabricacao" type="number" required />
 
             <label for="m-numeroAssentos">Numero de Assentos</label>
             <input id="m-numeroAssentos" type="number" required />
+
+            <label for="m-referencia">Referência</label>
+            <input id="m-referencia" type="text" required />
             <button id="btnSalvar">Salvar</button>
           </form>
         </div>
       </div>
   
     </div>
-    <script src="./js/aeronaves.js"></script>
     <script>
         document.getElementById("logout").addEventListener("click", function () {
         abrirPagina("dashboard.html");
         });
     </script>
+    <script src="./js/aeronaves.js"></script>
   </body>
   
   </html>
