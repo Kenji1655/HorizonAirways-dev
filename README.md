@@ -15,7 +15,6 @@ O projeto faz uso das seguintes tecnologias:
 - HTML
 - CSS
 - JavaScript
-- TypeScript
 
 ### Backend:
 - JavaScript/TypeScript
