@@ -274,6 +274,127 @@ app.delete("/excluirAeroporto", async(req,res)=>{
 });
 
 //-------------------------------------------Voo------------------------------------------
+app.get("/listarVoos", async(req,res)=>{
+  let cr: CustomResponse = {status: "ERROR", message: "", payload: undefined,};
+  let connection;
+  try{
+    connection = await oracledb.getConnection(oraConnAttribs);
+
+    let resultadoConsulta = await connection.execute(`SELECT * FROM VOOS`); 
+  
+    cr.status = "SUCCESS"; 
+    cr.message = "Dados obtidos";
+    cr.payload = (rowsToVoos(resultadoConsulta.rows));
+
+  }catch(e){
+    if(e instanceof Error){
+      cr.message = e.message;
+      console.log(e.message);
+    }else{
+      cr.message = "Erro ao conectar ao oracle. Sem detalhes";
+    }
+  } finally {
+    if(connection !== undefined){
+      await connection.close();
+    }
+    res.send(cr);  
+  }
+});
+
+app.put("/inserirVoo", async(req,res)=>{
+  
+  let cr: CustomResponse = {
+    status: "ERROR",
+    message: "",
+    payload: undefined,
+  };
+
+  const aero: Voo = req.body as Voo;
+  console.log(aero);
+
+  let [valida, mensagem] = VooValida(aero);
+  if(!valida) {
+    cr.message = mensagem;
+    res.send(cr);
+  } else {
+    let connection;
+    try{
+      const cmdInsertAero = `INSERT INTO VOOS 
+      (CODIGO, TRECHO, DATA, VALOR, ASSENTO)
+      VALUES
+      (SEQ_AERONAVES.NEXTVAL, :1, :2, :3, :4)`
+      const dados = [aero.trecho, aero.data, aero.valor, aero.assento];
+  
+      connection = await oracledb.getConnection(oraConnAttribs);
+      let resInsert = await connection.execute(cmdInsertAero, dados);
+      
+      await connection.commit();
+    
+      const rowsInserted = resInsert.rowsAffected
+      if(rowsInserted !== undefined &&  rowsInserted === 1) {
+        cr.status = "SUCCESS"; 
+        cr.message = "Voo inserido.";
+      }
+  
+    }catch(e){
+      if(e instanceof Error){
+        cr.message = e.message;
+        console.log(e.message);
+      }else{
+        cr.message = "Erro ao conectar ao oracle. Sem detalhes";
+      }
+    } finally {
+      if(connection!== undefined){
+        await connection.close();
+      }
+      res.send(cr);  
+    }  
+  }
+});
+
+app.delete("/excluirVoo", async(req,res)=>{
+  const codigo = req.body.codigo as number;
+ 
+  console.log('Codigo recebido: ' + codigo);
+
+  let cr: CustomResponse = {
+    status: "ERROR",
+    message: "",
+    payload: undefined,
+  };
+
+  let connection;
+  try{
+    connection = await oracledb.getConnection(oraConnAttribs);
+    const cmdDeleteAero = `DELETE VOOS WHERE codigo = :1`
+    const dados = [codigo];
+
+    let resDelete = await connection.execute(cmdDeleteAero, dados);
+    
+    await connection.commit();
+    
+    const rowsDeleted = resDelete.rowsAffected
+    if(rowsDeleted !== undefined &&  rowsDeleted === 1) {
+      cr.status = "SUCCESS"; 
+      cr.message = "Voo excluído.";
+    }else{
+      cr.message = "Voo não excluído. Verifique se o código informado está correto.";
+    }
+
+  }catch(e){
+    if(e instanceof Error){
+      cr.message = e.message;
+      console.log(e.message);
+    }else{
+      cr.message = "Erro ao conectar ao oracle. Sem detalhes";
+    }
+  } finally {
+    if(connection!==undefined)
+      await connection.close();
+
+    res.send(cr);  
+  }
+});
 
 app.listen(port,()=>{
   console.log("Servidor HTTP funcionando...");
