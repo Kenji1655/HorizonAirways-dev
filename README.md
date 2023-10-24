@@ -1,8 +1,7 @@
 ## Passo a passo para instalação:
 - Clone o repositório do GitHub na sua máquina;
 - Conecte-se ao VPN da PUC;
-- Abra um terminal no VSCode e rode "cd frontend", e depois "npm install";
-- Feche o terminal e abra outro terminal, então rode o comando "cd backend", e depois "npm install";
+- Abra um terminal no VSCode e rode "cd backend", e depois "npm install";
 - Rode "npm start" para iniciar o servidor HTTP, ainda no diretório do backend;
 - Aguarde alguns segundos até o retorno no terminal "Servidor HTTP funcionando...";
 - Siga o seguinte caminho de pastas: "HorizonAirways-dev\frontend\public", e selecione o arquivo "dashboard.html".
