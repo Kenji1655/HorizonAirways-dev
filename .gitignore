@@ -1,3 +1,3 @@
-node_modules
-package-lock.json
-build
+admin/node_modules
+admin/package-lock.json
+admin/build
