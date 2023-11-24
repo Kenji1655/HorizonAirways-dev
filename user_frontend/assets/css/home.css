@@ -1,0 +1,200 @@
+/* Reset de estilos para o corpo da página */
+body {
+    margin: 0; /* Remove margem padrão */
+    padding: 0; /* Remove preenchimento padrão */
+    height: 100vh; /* Define a altura do corpo como 100% da altura da viewport */
+    overflow-x: hidden; /* Oculta a barra de rolagem horizontal */
+  }
+  
+  /* NAVBAR */
+  .navbar {
+      transition: all 0.5s;
+  }
+  .logo-navbar {
+    transform: translateY(-5px);
+  }
+  
+  .nav-link {
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: "";
+    opacity: 0;
+    transition: all 0.2s;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .nav-link:hover::after {
+    opacity: 1;
+  }
+  
+  .nav-link.active {
+    color: white;
+  }
+  
+  .navbar-scrolled {
+      background-color: grey;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .bg-imagem {
+    height: 70vh;
+    width: 100vw;
+    object-fit: cover;
+    filter: brightness(0.6);
+    z-index: -1;
+    object-position: center top;
+    position: absolute;
+  }
+  /* FIM NAVBAR */
+  
+  /* MAIN */
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+  
+  .home {
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    padding: 250px 0 220px; 
+  }
+  
+  .home h2 {
+    font-size: 2.6em;
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .home p {
+    margin-top: low;
+    padding: 0;
+    font-size: 16px;
+    color: whitesmoke;
+    padding-bottom: 25px;
+  }
+  
+  section {
+    padding: 80px 300px;
+  }
+  
+  .container-texto {
+    position: relative;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 80px;
+  }
+  
+  .texto {
+    color: whitesmoke;
+  }
+  .sobre {
+    color: black;
+  }
+  
+  .container-sobre-imagem {
+    position: relative;
+    width: 100%;
+    min-height: 25vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: -15px;
+  }
+  /* FIM MAIN */
+  
+  /* FOOTER */
+  .footer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  /* FIM FOOTER */
+  
+  /* FORMULARIO */
+  /* Estilo do contêiner do formulário */
+  .container-formulario {
+    background-color: white;
+    margin: -40px auto;
+    padding: 30px 25px;
+    width: auto;
+    box-shadow: 20px 20px 80px rgb(218, 218, 218);
+    border-radius: 12px;
+  }
+  
+  /* Estilo da caixa interna do formulário */
+  .box {
+    border: 2px solid #ddd; /* Borda de 2px sólida em cinza claro (#ddd) */
+    padding: 10px 20px; /* Preenchimento interno de 10px no topo/baixo e 20px nos lados */
+  }
+  
+  /* Estilo das caixas de entrada do formulário */
+  .inputbox {
+    border: none; /* Remove a borda padrão */
+    outline: none; /* Remove a marcação de contorno padrão */
+  }
+  
+  /* Estilo de cabeçalho com cor preta */
+  .h-preto {
+    color: black; /* Cor preta */
+    margin-bottom: 5px; /* Margem inferior de 5px */
+    padding-left: 4px; /* Preenchimento à esquerda de 4px */
+    font-size: 15px; /* Tamanho da fonte de 14px */
+    font-weight: 500; /* Peso da fonte 500 (semi-negrito) */
+  }
+  
+  /* Estilo do texto do espaço reservado nas caixas de entrada */
+  ::placeholder {
+    font-size: 18px; /* Tamanho da fonte do espaço reservado de 18px */
+    color: #ddd; /* Cor do texto do espaço reservado em cinza claro (#ddd) */
+  }
+  
+  /* Estilo de texto com cor atenuada */
+  .textmuted {
+    color: #ddd; /* Cor do texto atenuado em cinza claro (#ddd) */
+  }
+  
+  /* Estilo para remover a marcação de contorno */
+  .outline-none {
+    outline: none; /* Remove a marcação de contorno */
+  }
+  
+  /* Estilo do botão com altura, tamanho da fonte e preenchimento específicos */
+  .btn.btn-light {
+    height: 60px;
+    width: 200px; /* Altura do botão de 60px */
+    font-size: 18px; /* Tamanho da fonte do botão de 20px */
+    padding: 10px; /* Preenchimento interno do botão de 10px */
+    background-color: white;
+    border: 2px solid #ddd; /* Borda de 2px sólida em cinza claro (#ddd) */
+    padding: 10px 20px;
+  }
+  
+  /* Estilo de layout responsivo para o corpo da página em telas menores que 820px de largura */
+  @media (max-width: 820px) {
+    body {
+      padding: 20px; /* Adiciona um preenchimento de 20px ao corpo da página em telas menores */
+    }
+  }
+  
+  /* Add a style for the readonly date input */
+  .data-volta-input[readonly] {
+    color: #aaa; /* Use a grayed-out color */
+  }
+  /* FIM FORMULARIO */
+  
