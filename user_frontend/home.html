@@ -26,6 +26,10 @@
 
     <!-- Script Js Local -->
     <script src="./js/home.js"></script>
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
   <!-- Fim do cabeçalho -->
 
@@ -60,7 +64,7 @@
                 <a class="nav-link" href="#sobre">Sobre</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/HorizonAirways-dev/frontend/login.html">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                <a id="loginLink" class="nav-link" href="#">Login <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
               </li>
             </ul>
           </div>
@@ -147,7 +151,7 @@
               </div>
             </div>
             <div class="col-md-4 mb-4">
-              <button class="btn btn-light" type="submit">Procurar</button>
+              <button onclick="enviarCampo()" id="btnProcurar" class="btn btn-light" type="submit">Procurar</button>
             </div>
           </div>
         </form>
@@ -206,7 +210,7 @@
     <footer class="footer py-3 bg-light text-center">
       <div class="container-footer d-flex align-items-center justify-content-center">
         <!-- Logo -->
-        <img src="./assets/img/logo.png" alt="Horizon Airlines Logo" width="50" height="42" class="me-3" />
+        <img src="/admin_frontend/assets/img/logo.png" alt="Horizon Airlines Logo" width="50" height="42" class="me-3" />
         <!-- Informações de rodapé -->
         <div>
           <p class="text-muted">

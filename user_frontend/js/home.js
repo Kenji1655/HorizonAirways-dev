@@ -80,3 +80,60 @@ document.addEventListener('DOMContentLoaded', function () {
     navEL.classList.toggle('navbar-scrolled', scrolled);
   });
 });
+
+// Funçao para abrir tela de login
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Aguarde até que o documento esteja totalmente carregado
+
+  // Obtenha o elemento de login
+  var loginLink = document.getElementById("loginLink");
+
+  // Adicione um ouvinte de evento de clique
+  loginLink.addEventListener("click", function (event) {
+    // Impedir o comportamento padrão de navegação
+    event.preventDefault();
+
+    // Redirecionar para a página de login
+    window.location.href = "/user_frontend/login.html";
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Aguarde até que o documento esteja totalmente carregado
+
+  // Obtenha o elemento de login
+  var btnProcurar = document.getElementById("btnProcurar");
+
+  // Adicione um ouvinte de evento de clique
+  btnProcurar.addEventListener("click", function (event) {
+    // Impedir o comportamento padrão de navegação
+    event.preventDefault();
+
+    // Redirecionar para a página de login
+    window.location.href = "/user_frontend/selecaovoos.html";
+  });
+});
+
+
+// FUNCAO PARA AUTOCOMPLEMENTAR A BUSCA
+
+document.addEventListener("DOMContentLoaded", function () { 
+
+  $(function() {
+    var availableTags = ["GRU - Aeroporto Internacional de São Paulo/Guarulhos", "SDU - Aeroporto Santos Dumont/Rio de Janeiro", "BSB - Aeroporto Internacional de Brasília", "GIG - Aeroporto Internacional do Rio de Janeiro/Galeão", "CGH - Aeroporto Internacional de Congonhas/São Paulo", "CNF - Aeroporto Internacional de Belo Horizonte/Confins", "REC - Aeroporto Internacional de Recife/Guararapes", "SSA - Aeroporto Internacional de Salvador", "FOR - Aeroporto Internacional de Fortaleza", "MAO - Aeroporto Internacional de Manaus", "POA - Aeroporto Internacional de Porto Alegre", "CWB - Aeroporto Internacional de Curitiba", "BEL - Aeroporto Internacional de Belém", "NAT - Aeroporto Internacional de Natal", "FLN - Aeroporto Internacional de Florianópolis", "CGB - Aeroporto Internacional de Cuiabá", "GYN - Aeroporto Internacional de Goiânia", "VIX - Aeroporto Internacional de Vitória", "JPA - Aeroporto Internacional de João Pessoa", "THE - Aeroporto Internacional de Teresina"]; // Substitua isso com seus dados
+
+    $("#origem").autocomplete({
+      source: availableTags
+    });
+    $("#destino").autocomplete({
+      source: availableTags
+    });
+  });
+});
+
+// FUNCAO PARA ENVIAR DESTINO E ORIGEM SELECIONADOS
+function enviarCampo() {
+  var vooOrigem = document.getElementById("origem").value;
+  window.location.href = "selecaovoos.html?vooOrigem=" + encodeURIComponent(vooOrigem);
+}
