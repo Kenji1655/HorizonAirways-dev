@@ -121,14 +121,31 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () { 
 
   $(function() {
-    var availableTags = ["GRU - Aeroporto Internacional de São Paulo/Guarulhos", "SDU - Aeroporto Santos Dumont/Rio de Janeiro", "BSB - Aeroporto Internacional de Brasília", "GIG - Aeroporto Internacional do Rio de Janeiro/Galeão", "CGH - Aeroporto Internacional de Congonhas/São Paulo", "CNF - Aeroporto Internacional de Belo Horizonte/Confins", "REC - Aeroporto Internacional de Recife/Guararapes", "SSA - Aeroporto Internacional de Salvador", "FOR - Aeroporto Internacional de Fortaleza", "MAO - Aeroporto Internacional de Manaus", "POA - Aeroporto Internacional de Porto Alegre", "CWB - Aeroporto Internacional de Curitiba", "BEL - Aeroporto Internacional de Belém", "NAT - Aeroporto Internacional de Natal", "FLN - Aeroporto Internacional de Florianópolis", "CGB - Aeroporto Internacional de Cuiabá", "GYN - Aeroporto Internacional de Goiânia", "VIX - Aeroporto Internacional de Vitória", "JPA - Aeroporto Internacional de João Pessoa", "THE - Aeroporto Internacional de Teresina"]; // Substitua isso com seus dados
 
-    $("#origem").autocomplete({
-      source: availableTags
-    });
-    $("#destino").autocomplete({
-      source: availableTags
-    });
+    fetch('http://localhost:3000/listarCidades')
+      .then(response => {
+        if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        var availableTags = []
+        data.sort();
+        for(i in data){
+            availableTags.push(data[i].join('-'));
+            console.log(data[i].join('-'));
+        }
+        $("#origem").autocomplete({
+          source: availableTags
+        });
+        $("#destino").autocomplete({
+          source: availableTags
+        });
+      })
+      .catch(error => {
+        console.error('Erro ao recuperar dados da API:', error);
+      });
   });
 });
 

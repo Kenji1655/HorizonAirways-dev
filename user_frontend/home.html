@@ -109,13 +109,13 @@
             <div class="col-md-6 col-12 mb-4">
               <div class="form-control d-flex flex-column">
                 <label for="origem" class="h-preto">Origem</label>
-                <input id="origem" class="inputbox" placeholder="Cidade ou Aeroporto" type="text" required />
+                <input id="origem" class="inputbox" placeholder="Insira sua cidade de origem" type="text" required />
               </div>
             </div>
             <div class="col-md-6 col-12 mb-4">
               <div class="form-control d-flex flex-column">
                 <label for="destino" class="h-preto">Destino</label>
-                <input id="destino" class="inputbox" placeholder="Cidade ou Aeroporto" type="text" required />
+                <input id="destino" class="inputbox" placeholder="Insira sua cidade de destino" type="text" required />
               </div>
             </div>
           </div>
@@ -136,22 +136,19 @@
             </div>
           </div>
 
-          <!-- Número de Adultos, Crianças e Botão de Procurar -->
+          <!-- Número de pessoas e Botão de Procurar -->
           <div class="row">
             <div class="col-md-4 mb-4">
               <div class="form-control d-flex flex-column">
-                <label for="adultos" class="h-preto">Adultos</label>
-                <input id="adultos" class="border-0 outline-none" type="number" placeholder="0" max="10" step="1" />
+                <label for="adultos" class="h-preto">Quantidade de passageiros</label>
+                <input id="adultos" class="border-0 outline-none" type="number" placeholder="0" max="10" min="1" step="1" />
               </div>
             </div>
+            <!-- Pular uma coluna -->
             <div class="col-md-4 mb-4">
-              <div class="form-control d-flex flex-column">
-                <label for="criancas" class="h-preto">Crianças</label>
-                <input id="criancas" class="border-0 outline-none" type="number" placeholder="0" max="10" step="1" />
-              </div>
             </div>
             <div class="col-md-4 mb-4">
-              <button onclick="enviarCampo()" id="btnProcurar" class="btn btn-light" type="submit">Procurar</button>
+              <button onclick="enviarCampo()" id="btnProcurar" class="btn btn-light" type="submit">Buscar</button>
             </div>
           </div>
         </form>
