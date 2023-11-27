@@ -10,19 +10,13 @@ const btnSalvar = document.querySelector('#btnSalvar')
 let itens
 let id
 
-function abrirPagina(pagina) {
-    window.location.href = pagina;
-}
-
 function openModal(edit = false, index = 0) {
   modal.classList.add('active')
-
   modal.onclick = e => {
     if (e.target.className.indexOf('modal-container') !== -1) {
       modal.classList.remove('active')
     }
   }
-
   if (edit) {
     sModelo.value = itens[index].modelo
     sFabricante.value = itens[index].fabricante
@@ -37,24 +31,21 @@ function openModal(edit = false, index = 0) {
     sNumeroAssentos.value = ''
     sReferencia.value = ''
   }
-  
 }
 
 function editItem(index) {
-
   openModal(true, index)
 }
 
 function deleteItem(index) {
-  itens.splice(index, 1)
-  setItensBD()
-  loadItens()
+  fetch(`http://localhost:3000/deletarAeronave/${itens[index].ID}`, {method: 'DELETE'});
+  location.reload();
 }
 
 function insertItem(item, index) {
   let tr = document.createElement('tr')
-
   tr.innerHTML = `
+    <td>${item.ID}</td>
     <td>${item.modelo}</td>
     <td>${item.fabricante}</td>
     <td>${item.anoFabricacao}</td>
@@ -72,44 +63,46 @@ function insertItem(item, index) {
 }
 
 btnSalvar.onclick = e => {
-  
-  if (sModelo.value == '' || sFabricante.value == ''|| sAnoFabricacao.value == '' || sNumeroAssentos.value == '' || sReferencia.value == '') {
-    return
-  }
-
+  if (sModelo.value == '' || sFabricante.value == ''|| sAnoFabricacao.value == '' || 
+  sNumeroAssentos.value == '' || sReferencia.value == '') return
   e.preventDefault();
 
   if (id !== undefined) {
-    itens[id].modelo = sModelo.value
-    itens[id].fabricante = sFabricante.value
-    itens[id].anoFabricacao = sAnoFabricacao.value
-    itens[id].numeroAssentos = sNumeroAssentos.value
-    itens[id].referencia = sReferencia.value
+    fetch(`http://localhost:3000/editarAeronave/${itens[id].ID}/${sReferencia.value}/${sNumeroAssentos.value}/${sModelo.value}/${sFabricante.value}/${sAnoFabricacao.value}`, {method: 'PUT'})
+    .then(response => response.json()).then(data => console.log(data));
+    location.reload();
   } else {
-    itens.push({'modelo': sModelo.value, 'fabricante': sFabricante.value, 'anoFabricacao': sAnoFabricacao.value, 'numeroAssentos': sNumeroAssentos.value, 'referencia': sReferencia.value})
+    fetch(`http://localhost:3000/cadastrarAeronave/${sReferencia.value}/${sNumeroAssentos.value}/${sModelo.value}/${sFabricante.value}/${sAnoFabricacao.value}`, {method: 'PUT'})
+    .then(response => response.json()).then(data => console.log(data));
+    location.reload();
   }
-
-  setItensBD()
-
-  modal.classList.remove('active')
-  loadItens()
-  id = undefined
+  modal.classList.remove('active');
+  id = undefined;
+  location.reload();
 }
 
-function loadItens() {
-  itens = getItensBD()
+function loadItens(dados) {
+  let dado, aux = [];
+  for(i in dados){
+    dado = {
+      "ID": `${dados[i][0]}`,
+      "modelo": `${dados[i][1]}`,
+      "fabricante": `${dados[i][2]}`,
+      "anoFabricacao": `${dados[i][3]}`,
+      "numeroAssentos": `${dados[i][4]}`,
+      "referencia": `${dados[i][5]}`
+    }
+    aux.push(dado);
+  };
+  itens = aux;
   tbody.innerHTML = ''
   itens.forEach((item, index) => {
     insertItem(item, index)
+    console.log()
   })
-
 }
 
-const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? []
-const setItensBD = () => localStorage.setItem('dbfunc', JSON.stringify(itens))
-
-loadItens()
-
-document.getElementById("logout").addEventListener("click", function () {
-    abrirPagina("dashboard.html");
+// pegar os dados do banco
+fetch('http://localhost:3000/listarAeronaves').then(response => response.json()).then(data => {
+  loadItens(data);
 });

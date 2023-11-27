@@ -31,7 +31,7 @@
             <span>Aeroportos e Cidades</span>
             <span>
               <button onclick="openModal()" id="new">Incluir</i></button>
-              <button id="logout">Voltar</button>
+              <button onclick="window.location.href = 'dashboard.html'" id="logout">Voltar</button>
             </span>
         </div>
   
@@ -39,9 +39,11 @@
         <table>
           <thead>
             <tr>
-              <th>Aeroporto</th>
+              <th>Código</th>
+              <th>Aeroporto⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</th>
               <th>Sigla</th>
               <th>Cidade</th>
+              <th>Estado</th>
               <th>País</th>
               <th class="acao">Editar</th>
               <th class="acao" onclick="confirmarExclusao()">Excluir</th>
@@ -64,6 +66,9 @@
             <label for="m-cidade">Cidade</label>
             <input id="m-cidade" type="text" required />
 
+            <label for="m-estado">Estado</label>
+            <input id="m-estado" type="text" required />
+
             <label for="m-pais">País</label>
             <input id="m-pais" type="text" required />
     
@@ -73,18 +78,6 @@
       </div>
   
     </div>
-    <script>
-        document.getElementById("logout").addEventListener("click", function () {
-        abrirPagina("dashboard.html");
-        });
-        function confirmarExclusao() {
-          if (confirm("Tem certeza de que deseja excluir este item?")) {
-            alert("Item excluído com sucesso!");} 
-          else {
-          alert("Exclusão cancelada.");
-          }
-        }
-    </script>
     <script src="./js/aeroportos.js"></script>
   </body>
   

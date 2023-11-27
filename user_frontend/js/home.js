@@ -121,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () { 
 
   $(function() {
-
     fetch('http://localhost:3000/listarCidades')
       .then(response => {
         if (!response.ok) {
@@ -133,8 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var availableTags = []
         data.sort();
         for(i in data){
-            availableTags.push(data[i].join('-'));
-            console.log(data[i].join('-'));
+            availableTags.push(`${data[i][0]}-${data[i][1]}, ${data[i][2]}`);
         }
         $("#origem").autocomplete({
           source: availableTags

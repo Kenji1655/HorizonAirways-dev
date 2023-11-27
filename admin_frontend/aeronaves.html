@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <!-- HEAD -->
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Aeronaves</title>
     <!-- CSS -->
     <link 
         rel="stylesheet" 
@@ -26,28 +26,28 @@
         rel="icon" 
         href="./assets/img/logo.png"
     >
-</head>
-<!-- FIM HEAD -->
-<body>
+  </head>
+  <!-- FIM HEAD -->
+  <body>
     <div class="container">
       <div class="header">
         <span class="material-symbols-outlined">airlines</span>
         <span>Aeronaves</span>
         <span>
-          <button onclick="openModal()" id="new">Incluir</i></button>
-          <button id="logout">Voltar</button>
+          <button onclick="openModal()" id="new">Incluir</button>
+          <button onclick="window.location.href = 'dashboard.html'" id="logout">Voltar</button>
         </span>
       </div>
-  
       <div class="divTable">
         <table>
           <thead>
             <tr>
-              <th>Modelo</th>
+              <th>Código</th>
+              <th>Modelo⠀⠀⠀⠀⠀</th>
               <th>Fabricante</th>
               <th>Ano de fabricação</th>
               <th>Número de Assentos</th>
-              <th>Número de Identificação</th>
+              <th>Indentificação</th>
               <th class="acao">Editar</th>
               <th class="acao">Excluir</th>
             </tr>
@@ -56,42 +56,39 @@
           </tbody>
         </table>
       </div>
-  
+
       <div class="modal-container">
         <div class="modal">
           <form>
             <label for="m-modelo">Modelo</label>
             <input id="m-modelo" type="text" required />
-
             <label for="m-fabricante">Fabricante</label>
             <select name="m-fabricante" id="m-fabricante" required>
-                <option value="EMBRAER">EMBRAER</option>
+                <option value="Embraer">Embraer</option>
                 <option value="Boeing">Boeing</option>
                 <option value="AirBus">AirBus</option>
-                <option value="Lockheed ">Lockheed</option>
+                <option value="Lockheed">Lockheed</option>
+                <option value="Antonov">Antonov</option>
+                <option value="ATR">ATR</option>
+                <option value="Avro">Avro</option>
+                <option value="BAC">BAC</option>
+                <option value="Bombardier">Bombardier</option>
+                <option value="Convair">Convair</option>
+                <option value="Convair">Fokker</option>
               </select>
               <br><br>
-    
             <label for="m-anoFabricacao">Ano de fabricação</label>
             <input id="m-anoFabricacao" type="number" required />
-
             <label for="m-numeroAssentos">Número de Assentos</label>
             <input id="m-numeroAssentos" type="number" required />
-
             <label for="m-referencia">Número de Identificação</label>
             <input id="m-referencia" type="text" required />
             <button id="btnSalvar">Salvar</button>
           </form>
         </div>
       </div>
-  
+
     </div>
-    <script>
-        document.getElementById("logout").addEventListener("click", function () {
-        abrirPagina("dashboard.html");
-        });
-    </script>
     <script src="./js/aeronaves.js"></script>
   </body>
-  
-  </html>
+</html>
