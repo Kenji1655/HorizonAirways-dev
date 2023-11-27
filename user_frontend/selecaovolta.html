@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Seleção de voos | Horizon Airlines</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- CSS Local -->
+    <link rel="stylesheet" href="./assets/css/selecaovolta.css" />
+
+    <!-- GOOGLE Icones -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- Icone -->
+    <link rel="icon" href="/admin_frontend/assets/img/logo.png" />
+
+    <!-- Script Bootstrap -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Script Js Local -->
+    <script src="./js/selecaovolta.js"></script>
+  </head>
+  <body>
+    <header>
+      <!-- NAVBAR -->
+      <nav class="navbar bg-body-tertiary">
+        <div class="container">
+          <a id="homeLink" class="navbar-brand" href="#">
+            <img
+              class="logo-navbar"
+              src="/HorizonAirways-dev/admin_frontend/assets/img/logo.png"
+              alt="icone-navbar"
+              width="71"
+              height="55"
+            />
+            <span class="brand-text">Horizon Airlines</span>
+          </a>
+        </div>
+      </nav>
+      <!-- FIM NAVBAR -->
+      <!-- BARRA DE INFORMAÇÕES -->
+      <div class="infobar p-2 shadow align-items-center">
+        <div
+          class="container d-flex justify-content-between align-items-center"
+        >
+          <div>
+            <span id="vooIdaIcon" class="material-symbols-outlined">
+              flight_takeoff
+            </span>
+            <span id="vooIdaInfo"></span>
+          </div>
+          <div>
+            <span id="vooVoltaIcon" class="material-symbols-outlined">
+              flight_land
+            </span>
+            <span id="vooVoltaInfo"></span>
+          </div>
+          <div>
+            <span id="dataIcon" class="material-symbols-outlined">
+              event_available
+            </span>
+            <span id="dataInfo"></span>
+          </div>
+          <div>
+            <span id="passageirosIcon" class="material-symbols-outlined">
+              group
+            </span>
+            <span id="passageirosInfo"></span>
+          </div>
+        </div>
+      </div>
+      <!-- FIM BARRA DE INFORMAÇÕES -->
+    </header>
+
+    <!-- MAIN -->
+    <!-- MAIN -->
+    <section id="main">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-sm-12 col-md-6 d-flex justify-content-center align-items-center"
+          >
+            <p class="texto-info">Resumo da sua viagem</p>
+          </div>
+        </div>
+        <!-- Card de Voo de Ida -->
+        <h6>Voo de ida</h6>
+        <a href="/HorizonAirways-dev/user_frontend/selecaovolta.html">
+          <div class="card container shadow mt-4" id="cardida">
+            <div
+              class="card-body d-flex justify-content-between align-items-center"
+              data-toggle="modal"
+              data-target="#detalhesVooModal"
+            >
+              <div>
+                <h5 class="card-title">Voo ID</h5>
+              </div>
+              <div>
+                <p class="card-texto d-inline-block">Origem: GRU - São Paulo</p>
+                <span class="text-muted"> | </span>
+                <p class="card-texto d-inline-block">
+                  Destino: STD - Rio de Janeiro
+                </p>
+                <span class="text-muted"> | </span>
+                <p class="card-texto d-inline-block">Data: 24/11/2023</p>
+              </div>
+            </div>
+          </div>
+        </a>
+        <!-- FIM CARD DE IDA -->
+        <div class="row">
+          <div
+            class="col-sm-12 col-md-6 d-flex justify-content-center align-items-center"
+          >
+            <p class="texto-info">Escolha um voo de volta</p>
+          </div>
+        </div>
+      </div>
+      <!-- CARD VOO DE VOLTA -->
+      <a href="/HorizonAirways-dev/user_frontend/resumoviagem.html">
+        <div class="card container shadow mt-4" id="cardLink">
+          <div
+            class="card-body d-flex justify-content-between align-items-center"
+            data-toggle="modal"
+            data-target="#detalhesVooModal"
+          >
+            <div>
+              <h5 class="card-title">Voo ID</h5>
+            </div>
+            <div>
+              <p class="card-texto d-inline-block">Origem: GRU - São Paulo</p>
+              <span class="text-muted"> | </span>
+              <p class="card-texto d-inline-block">
+                Destino: STD - Rio de Janeiro
+              </p>
+              <span class="text-muted"> | </span>
+              <p class="card-texto d-inline-block">Data: 24/11/2023</p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/HorizonAirways-dev/user_frontend/resumoviagem.html">
+        <div class="card container shadow mt-4" id="cardLink">
+          <div
+            class="card-body d-flex justify-content-between align-items-center"
+            data-toggle="modal"
+            data-target="#detalhesVooModal"
+          >
+            <div>
+              <h5 class="card-title">Voo ID</h5>
+            </div>
+            <div>
+              <p class="card-texto d-inline-block">Origem: GRU - São Paulo</p>
+              <span class="text-muted"> | </span>
+              <p class="card-texto d-inline-block">
+                Destino: STD - Rio de Janeiro
+              </p>
+              <span class="text-muted"> | </span>
+              <p class="card-texto d-inline-block">Data: 24/11/2023</p>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/HorizonAirways-dev/user_frontend/resumoviagem.html">
+        <div class="card container shadow mt-4" id="cardLink">
+          <div
+            class="card-body d-flex justify-content-between align-items-center"
+            data-toggle="modal"
+            data-target="#detalhesVooModal"
+          >
+            <div>
+              <h5 class="card-title">Voo ID</h5>
+            </div>
+            <div>
+              <p class="card-texto d-inline-block">Origem: GRU - São Paulo</p>
+              <span class="text-muted"> | </span>
+              <p class="card-texto d-inline-block">
+                Destino: STD - Rio de Janeiro
+              </p>
+              <span class="text-muted"> | </span>
+              <p class="card-texto d-inline-block">Data: 24/11/2023</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- FIM CARD VOO DE VOLTA -->
+    </section>
+  </body>
+</html>

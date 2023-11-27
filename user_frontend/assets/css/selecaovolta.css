@@ -1,0 +1,46 @@
+body {
+  height: 1000px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+.infobar {
+  background-color: #1f3766;
+  align-items: center;
+}
+
+.material-symbols-outlined {
+  color: white;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.texto-info {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 45px;
+}
+
+.card {
+  width: 900px;
+  cursor: pointer;
+}
+
+.modal-body p {
+  margin-bottom: 10px;
+}
+
+h6 {
+  text-align: center;
+  padding-right: 800px;
+}
+
+/* header {
+    height: 100px;
+    width: 100%;
+    background-color: aqua;
+} */
