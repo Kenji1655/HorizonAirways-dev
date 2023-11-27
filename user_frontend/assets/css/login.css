@@ -1,141 +1,136 @@
-
 /* Reset de Estilos Padrão */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 /* Estilo do Corpo da Página */
 body {
-    overflow-y: hidden;
-    height: 100vh;
-    background: whitesmoke /* Gradiente de Fundo */
-    
+  overflow-y: hidden;
+  height: 100vh;
+  background: whitesmoke; /* Gradiente de Fundo */
 }
 
 /* Estilo do Contêiner Principal */
 .container {
-    margin: 50px auto; /* Centralização do Contêiner com Margens */
+  margin: 50px auto; /* Centralização do Contêiner com Margens */
 }
 
 /* Estilo do Cabeçalho do Painel */
 .panel-heading {
-    text-align: center;
-    margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 /* Estilo do Link 'Forgot' */
 #forgot {
-    min-width: 100px;
-    margin-left: auto;
-    text-decoration: none;
+  min-width: 100px;
+  margin-left: auto;
+  text-decoration: none;
 }
 
 /* Estilo do Link em Hover */
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* Estilo do Rótulo na Forma Inline */
 .form-inline label {
-    padding-left: 10px;
-    margin: 0;
-    cursor: pointer;
+  padding-left: 10px;
+  margin: 0;
+  cursor: pointer;
 }
 
 /* Estilo do Botão Primário */
 .btn.btn-light {
-    margin-top: 20px;
-    border-radius: 15px;
+  margin-top: 20px;
+  border-radius: 15px;
 }
 
 /* Estilo Geral do Painel */
 .panel {
-    min-height: 380px;
-    box-shadow: 20px 20px 80px rgb(218, 218, 218); /* Sombra do Painel */
-    border-radius: 12px;
-    text-align: center;
+  min-height: 380px;
+  box-shadow: 20px 20px 80px rgb(218, 218, 218); /* Sombra do Painel */
+  border-radius: 12px;
+  text-align: center;
 }
 
 /* Estilo do Campo de Entrada */
 .input-field {
-    border-radius: 5px;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    border: 1px solid #ddd;
-    color: black; /* Cor do Texto */
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  color: black; /* Cor do Texto */
 }
 
 /* Estilo para Campos de Texto e Senha */
-input[type='text'],
-input[type='password'] {
-    border: none;
-    outline: none;
-    box-shadow: none;
-    width: 100%;
+input[type="text"],
+input[type="password"] {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
 }
 
 /* Estilo do Ícone de Olho com Classe 'fa-eye-slash' */
 .fa-eye-slash.btn {
-    border: none;
-    outline: none;
-    box-shadow: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 /* Estilo para Links com Target '_blank' */
-a[target='_blank'] {
-    position: relative;
-    transition: all 0.1s ease-in-out;
+a[target="_blank"] {
+  position: relative;
+  transition: all 0.1s ease-in-out;
 }
 
 /* Estilo Responsivo para Telas Menores que 360px */
-@media(max-width: 360px) {
-    #forgot {
-        margin-left: 0;
-        padding-top: 10px;
-    }
+@media (max-width: 360px) {
+  #forgot {
+    margin-left: 0;
+    padding-top: 10px;
+  }
 
-    body {
-        height: 100%;
-    }
+  body {
+    height: 100%;
+  }
 
-    .container {
-        margin: 30px 0;
-    }
+  .container {
+    margin: 30px 0;
+  }
 }
 
 /* Fim do Estilo CSS */
 
-
 .input-field {
-    position: relative;
+  position: relative;
 }
 
 .show-password-btn {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 .legenda {
-    text-align: center;
+  text-align: center;
 }
 
 .links {
-    color: purple;
+  color: purple;
 }
 
 .logo-painel {
-    width: 200px;
-    height: 200px
-    border
+  width: 200px;
+  height: 200px border;
 }
-

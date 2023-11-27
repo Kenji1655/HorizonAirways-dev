@@ -4,13 +4,11 @@ function toggleData() {
   var tipoViagem = document.getElementById("tipo-viagem");
   var dataIdaInput = document.getElementById("data-ida-container");
   var dataVoltaInput = document.getElementById("data-volta-container");
-
   // Condição para verificar o tipo de viagem escolhido
   if (tipoViagem.value === "ida") {
     // Exibição dos campos de data de ida e volta
     dataIdaInput.style.display = "block";
     dataVoltaInput.style.display = "block";
-    
     // Configuração dos campos de data
     dataIdaInput.querySelector("input").readOnly = false;
     dataVoltaInput.querySelector("input").readOnly = true;
@@ -19,7 +17,6 @@ function toggleData() {
     // Exibição dos campos de data de ida e volta
     dataIdaInput.style.display = "block";
     dataVoltaInput.style.display = "block";
-    
     // Configuração dos campos de data
     dataIdaInput.querySelector("input").readOnly = false;
     dataVoltaInput.querySelector("input").readOnly = false;
@@ -31,7 +28,6 @@ function toggleData() {
 document.addEventListener("DOMContentLoaded", function () {
   toggleData();
 });
-
 // Evento que adiciona a classe 'active' ao link de navegação clicado
 document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll(".nav-link");
@@ -47,20 +43,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// home.js
-
 // Evento que permite a navegação suave ao clicar nos links da barra de navegação
 document.addEventListener("DOMContentLoaded", function () {
   const links = document.querySelectorAll("a.nav-link");
-
   links.forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
-
       // Obtém o ID do elemento de destino
       const targetId = this.getAttribute("href").substring(1);
       const targetElement = document.getElementById(targetId);
-
       // Realiza a rolagem suave para o elemento de destino
       if (targetElement) {
         targetElement.scrollIntoView({
@@ -72,77 +63,82 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Evento que altera a aparência da barra de navegação ao rolar a página
-document.addEventListener('DOMContentLoaded', function () {
-  const navEL = document.querySelector('.navbar');
-
-  window.addEventListener('scroll', () => {
+document.addEventListener("DOMContentLoaded", function () {
+  const navEL = document.querySelector(".navbar");
+  window.addEventListener("scroll", () => {
     const scrolled = window.scrollY >= 56;
-    navEL.classList.toggle('navbar-scrolled', scrolled);
+    navEL.classList.toggle("navbar-scrolled", scrolled);
   });
 });
 
 // Funçao para abrir tela de login
-
 document.addEventListener("DOMContentLoaded", function () {
   // Aguarde até que o documento esteja totalmente carregado
-
   // Obtenha o elemento de login
   var loginLink = document.getElementById("loginLink");
-
   // Adicione um ouvinte de evento de clique
   loginLink.addEventListener("click", function (event) {
     // Impedir o comportamento padrão de navegação
     event.preventDefault();
-
     // Redirecionar para a página de login
-    window.location.href = "/user_frontend/login.html";
+    window.location.href = "/HorizonAirways-dev/user_frontend/login.html";
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Aguarde até que o documento esteja totalmente carregado
-
-  // Obtenha o elemento de login
-  var btnProcurar = document.getElementById("btnProcurar");
-
-  // Adicione um ouvinte de evento de clique
-  btnProcurar.addEventListener("click", function (event) {
-    // Impedir o comportamento padrão de navegação
-    event.preventDefault();
-
-    // Redirecionar para a página de login
-    window.location.href = "/user_frontend/selecaovoos.html";
-  });
-});
-
+// FUNCAO PARA PORUCRAR VOOS
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Aguarde até que o documento esteja totalmente carregado
+//   // Obtenha o elemento de login
+//   var btnProcurar = document.getElementById("btnProcurar");
+//   // Adicione um ouvinte de evento de clique
+//   btnProcurar.addEventListener("click", function (event) {
+//     // Impedir o comportamento padrão de navegação
+//     event.preventDefault();
+//     // Redirecionar para a página de login
+//     window.location.href = "/HorizonAirways-dev/user_frontend/selecaoida.html";
+//   });
+// });
 
 // FUNCAO PARA AUTOCOMPLEMENTAR A BUSCA
+<<<<<<< HEAD
 
 document.addEventListener("DOMContentLoaded", function () { 
 
   $(function() {
     fetch('http://localhost:3000/listarCidades')
       .then(response => {
+=======
+document.addEventListener("DOMContentLoaded", function () {
+  $(function () {
+    fetch("http://localhost:3000/listarCidades")
+      .then((response) => {
+>>>>>>> 576354c3ba70859d62dcdc2d85558b50dd8f9450
         if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.status}`);
+          throw new Error(`Erro na requisição: ${response.status}`);
         }
         return response.json();
       })
-      .then(data => {
-        var availableTags = []
+      .then((data) => {
+        var availableTags = [];
         data.sort();
+<<<<<<< HEAD
         for(i in data){
             availableTags.push(`${data[i][0]}-${data[i][1]}, ${data[i][2]}`);
+=======
+        for (i in data) {
+          availableTags.push(data[i].join("-"));
+          console.log(data[i].join("-"));
+>>>>>>> 576354c3ba70859d62dcdc2d85558b50dd8f9450
         }
         $("#origem").autocomplete({
-          source: availableTags
+          source: availableTags,
         });
         $("#destino").autocomplete({
-          source: availableTags
+          source: availableTags,
         });
       })
-      .catch(error => {
-        console.error('Erro ao recuperar dados da API:', error);
+      .catch((error) => {
+        console.error("Erro ao recuperar dados da API:", error);
       });
   });
 });
@@ -150,5 +146,39 @@ document.addEventListener("DOMContentLoaded", function () {
 // FUNCAO PARA ENVIAR DESTINO E ORIGEM SELECIONADOS
 function enviarCampo() {
   var vooOrigem = document.getElementById("origem").value;
-  window.location.href = "selecaovoos.html?vooOrigem=" + encodeURIComponent(vooOrigem);
+  window.location.href =
+    "selecaoida.html?vooOrigem=" + encodeURIComponent(vooOrigem);
 }
+
+
+// FUNCAO PARA BLOQUEAR FORMULARIO CASO NAO SEJA PREENCHIDO
+document.addEventListener("DOMContentLoaded", function () {
+  function enviarCampo() {
+    var tipoViagem = document.getElementById("tipo-viagem").value;
+    var origem = document.getElementById("origem").value;
+    var destino = document.getElementById("destino").value;
+    var dataIda = document.getElementById("data-ida").value;
+    var dataVolta = document.getElementById("data-volta").value;
+    var adultos = document.getElementById("adultos").value;
+  
+    var camposPreenchidos =
+      tipoViagem !== "" &&
+      origem !== "" &&
+      destino !== "" &&
+      dataIda !== "" &&
+      (tipoViagem === "ida" || dataVolta !== "") &&
+      adultos !== "";
+  
+    if (!camposPreenchidos) {
+      alert("Por favor, preencha todos os campos obrigatórios.");
+    } else {
+      alert("Formulário enviado com sucesso!");
+      // Aqui você pode adicionar código para redirecionar para a próxima tela ou realizar outra ação desejada
+    }
+  }
+  
+  document.getElementById("btnProcurar").addEventListener("click", function (event) {
+    event.preventDefault();
+    enviarCampo();
+  });
+});
