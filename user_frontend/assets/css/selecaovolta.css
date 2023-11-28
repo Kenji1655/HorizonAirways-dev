@@ -9,6 +9,10 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+span {
+  color: white;
+}
+
 .infobar {
   background-color: #1f3766;
   align-items: center;

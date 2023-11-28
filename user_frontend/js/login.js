@@ -15,14 +15,23 @@ function togglePassword() {
 
 // FUNCAO PARA IR AO DASHBOARD ADM
 document.addEventListener("DOMContentLoaded", function () {
-  // Aguarde até que o documento esteja totalmente carregado
-  // Obtenha o elemento de login
-  var btnLogin = document.getElementById("btnLogin");
-  // Adicione um ouvinte de evento de clique
-  btnLogin.addEventListener("click", function (event) {
-    // Impedir o comportamento padrão de navegação
-    event.preventDefault();
-    // Redirecionar para a página de login
-    window.location.href = "/HorizonAirways-dev/admin_frontend/dashboard.html";
-  });
+  function enviarCampo() {
+    var email = document.getElementById("email").value;
+    var senha = document.getElementById("senha").value;
+
+    var camposPreenchidos = email !== "" && senha !== "";
+
+    if (!camposPreenchidos) {
+      alert("Por favor, preencha todos os campos obrigatórios.");
+    } else {
+      window.location.href = "/admin_frontend/dashboard.html";
+    }
+  }
+
+  document
+    .getElementById("btnLogin")
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+      enviarCampo();
+    });
 });

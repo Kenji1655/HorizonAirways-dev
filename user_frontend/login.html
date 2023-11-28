@@ -33,7 +33,7 @@
           <div class="panel border bg-white">
             <!-- Cabeçalho do Painel -->
             <div class="panel-heading">
-              <img class="logo-painel" src="/HorizonAirways-dev/admin_frontend/assets/img/logo-nome.png">
+              <img class="logo-painel" src="/admin_frontend/assets/img/logo-nome.png">
             </div>
 
             <!-- Corpo do Painel -->
@@ -45,6 +45,7 @@
                   <div class="input-field">
                     <span class="far fa-user p-2"></span>
                     <input
+                    id="email"
                       type="text"
                       name="email"
                       placeholder="Email"
@@ -58,7 +59,7 @@
                   <div class="input-field">
                     <span class="fas fa-lock px-2"></span>
                     <input
-                      id="senhaInput"
+                      id="senha"
                       type="password"
                       name="senha"
                       placeholder="Senha"
@@ -86,7 +87,7 @@
                 </div>
 
                 <!-- Botão de Login -->
-                <button id="btnLogin" type="submit" class="btn btn-light btn-block mt-3">
+                <button id="btnLogin" type="submit" class="btn btn-light btn-block mt-3" onclick="enviarCampo()">
                   Login
                 </button>
 

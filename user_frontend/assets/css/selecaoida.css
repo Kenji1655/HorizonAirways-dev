@@ -34,8 +34,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* header {
-    height: 100px;
-    width: 100%;
-    background-color: aqua;
-} */
+span {
+  color: white;
+}
