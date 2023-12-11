@@ -2,15 +2,13 @@ var abrirSidebar = false;
 var sidebar = document.getElementById("sidebar");
 
 function abrirSidebar() {
-  if (!abrirSidebar) {
+  if (abrirSidebar) {
     sidebar.classList.add("sidebar-responsive");
     abrirSidebar = true;
   }
 }
-function fecharSidebar() {
-  if (abrirSidebar) {
-  }
-}
+
+function fecharSidebar() {}
 
 function abrirPagina(pagina) {
   window.location.href = pagina;

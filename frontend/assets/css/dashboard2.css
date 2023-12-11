@@ -1,0 +1,95 @@
+/* Importando a fonte do google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+/* Configurações da fonte */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Configurações gerais do body */
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8e8b8b;
+    margin-left: 15px;
+}
+
+/* Configurações do menu lateral */
+nav.menu-lateral{
+    width: 75px;
+    height: 100%;
+    background-color: #9e9b9b;
+    padding: 40px 0 40px;
+    position: fixed;
+    box-shadow: 3px 0 0 #5f5c5c;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+/* Alteração do menu lateral para a versão expandida */
+nav.menu-lateral.expandir{
+    width: 270px;
+}
+
+/* Icone do  */
+.sidebar-logo{
+    width: 100%;
+    padding-left: 12px;
+    padding-bottom: 15px;
+}
+
+.btn-expandir{
+    width: 100%;
+    padding-left: 25px;
+    padding-bottom: 15px;
+}
+
+.btn-expandir > i{
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul{
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu{
+    transition: .2s;
+}
+
+ul li.ativo{
+    background-color: #5f5c5c;
+}
+
+ul li.item-menu:hover{
+    background-color: #5f5c5c;
+}
+
+ul li.item-menu a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    line-height: 40px;
+    padding-left: 15px;
+}
+
+ul li.item-menu a .txt-link{
+    margin-left: 25px;
+}
+
+ul li.item-menu a .icon > i{
+    font-size: 30px;
+    margin-left: 5px;
+}
