@@ -10,6 +10,10 @@ const btnSalvar = document.querySelector('#btnSalvar')
 let itens
 let id
 
+function sla(){
+  console.log('Conexão bem sucedida')
+}
+
 function openModal(edit = false, index = 0) {
   modal.classList.add('active')
   modal.onclick = e => {
@@ -95,6 +99,7 @@ function loadItens(dados) {
     aux.push(dado);
   };
   itens = aux;
+  console.log(itens);
   tbody.innerHTML = ''
   itens.forEach((item, index) => {
     insertItem(item, index)

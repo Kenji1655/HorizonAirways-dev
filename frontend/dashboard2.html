@@ -27,31 +27,31 @@
         </div>
         <!-- Adicionando os icones do menu lateral -->
         <ul>
-            <li class="item-menu ativo">
+            <li class="item-menu ativo" id="home">
                 <a href="#">
                     <span class="icon"><i class="bi bi-house"></i></span>
                     <span class="txt-link">Home</span>
                 </a>
             </li>
-            <li class="item-menu">
+            <li class="item-menu" id="aeronaves">
                 <a href="#">
                     <span class="icon"><i class="bi bi-airplane"></i></span>
                     <span class="txt-link">Aeronaves</span>
                 </a>
             </li>
-            <li class="item-menu">
+            <li class="item-menu" id="aeroportos">
                 <a href="#">
                     <span class="icon"><i class="bi bi-pin-map"></i></span>
                     <span class="txt-link">Aeroportos</span>
                 </a>
             </li>
-            <li class="item-menu">
+            <li class="item-menu" id="voos">
                 <a href="#">
                     <span class="icon"><i class="bi bi-ticket-perforated"></i></span>
                     <span class="txt-link">Voos</span>
                 </a>
             </li>
-            <li class="item-menu">
+            <li class="item-menu" id="configuracoes">
                 <a href="#">
                     <span class="icon"><i class="bi bi-gear"></i></span>
                     <span class="txt-link">Configurações</span>
@@ -59,33 +59,7 @@
             </li>
         </ul>
     </nav>
-    <div id="content">
-        <div class="container">
-            <div class="header">
-              <span>Aeronaves</span>
-              <span>
-                <button onclick="console.log('Incluir')" id="new">Incluir</button>
-              </span>
-            </div>
-            <div class="divTable">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Código</th>
-                    <th>Modelo</th>
-                    <th>Fabricante</th>
-                    <th>Ano de fabricação</th>
-                    <th>Número de Assentos</th>
-                    <th>Indentificação</th>
-                    <th class="acao">Editar</th>
-                    <th class="acao">Excluir</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-    </div>
+    <div id="content"></div>
     <!-- Conexão com o JS -->
     <script src="js/dashboard2.js"></script>
 </body>

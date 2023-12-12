@@ -9,17 +9,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Configurações gerais do body */
-body{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #8e8b8b;
-    margin-left: 15px;
-}
-
 /* Configurações do menu lateral */
 nav.menu-lateral{
     width: 75px;
@@ -39,42 +28,43 @@ nav.menu-lateral.expandir{
     width: 270px;
 }
 
-/* Icone do  */
+/* Icone do Horizon Airlines */
 .sidebar-logo{
     width: 100%;
     padding-left: 12px;
     padding-bottom: 15px;
 }
 
+/* Icone do botão expandir */
 .btn-expandir{
     width: 100%;
     padding-left: 25px;
     padding-bottom: 15px;
 }
-
 .btn-expandir > i{
     color: white;
     font-size: 24px;
     cursor: pointer;
 }
 
+/* Configuração de tirar os pontos ao lado dos icones da sidebar */
 ul{
     height: 100%;
     list-style-type: none;
 }
 
+/* Configurações de escurecer os itens da sidebar selecionados e com o mouse em cima */
 ul li.item-menu{
     transition: .2s;
 }
-
 ul li.ativo{
     background-color: #5f5c5c;
 }
-
 ul li.item-menu:hover{
     background-color: #5f5c5c;
 }
 
+/* Configurações dos textos e dos icones da sidebar */
 ul li.item-menu a{
     color: white;
     text-decoration: none;
@@ -84,11 +74,9 @@ ul li.item-menu a{
     line-height: 40px;
     padding-left: 15px;
 }
-
 ul li.item-menu a .txt-link{
     margin-left: 25px;
 }
-
 ul li.item-menu a .icon > i{
     font-size: 30px;
     margin-left: 5px;
