@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Impedir o comportamento padrão de navegação
     event.preventDefault();
     // Redirecionar para a página de login
-    window.location.href = "/user_frontend/login.html";
+    window.location.href = "/frontend/login.html";
   });
 });
 
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!camposPreenchidos) {
       alert("Por favor, preencha todos os campos obrigatórios.");
     } else {
-      window.location.href = "/user_frontend/selecaoida.html";
+      window.location.href = "/frontend/selecaoida.html";
     }
   }
 
@@ -168,6 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("quantidadePassageiros", quantidadePassageiros);
   
     // Redirecionar para a página de seleção de voos
-    window.location.href = "/user_frontend/selecaoida.html";
+    window.location.href = "/frontend/selecaoida.html";
   }
   

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Impedir o comportamento padrão de navegação
     event.preventDefault();
     // Redirecionar para a página home
-    window.location.href = "/user_frontend/home.html";
+    window.location.href = "/frontend/home.html";
   });
 });
 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Impedir o comportamento padrão de navegação
     event.preventDefault();
     // Redirecionar para a página de login
-    window.location.href = "/user_frontend/mapaAssentos.html";
+    window.location.href = "/frontend/mapaAssentos.html";
   });
 });
 
