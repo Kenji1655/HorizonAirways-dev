@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!camposPreenchidos) {
       alert("Por favor, preencha todos os campos obrigatórios.");
     } else {
-      window.location.href = "/frontend/dashboard2.html";
+      window.location.href = "/frontend/admin.html";
     }
   }
 
