@@ -1,0 +1,25 @@
+body {
+  height: 1000px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+button {
+  width: 200px;
+}
+
+.texto-info {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 45px;
+}
+
+.card {
+  width: 900px;
+}
+
