@@ -11,10 +11,10 @@
 
 /* Configurações do menu lateral */
 nav.menu-lateral{
-    width: 75px;
-    height: 100%;
+    width: 10.5vh;
+    height: 100vh;
     background-color: #9e9b9b;
-    padding: 40px 0 40px;
+    padding: 3.5vh 0;
     position: fixed;
     box-shadow: 3px 0 0 #5f5c5c;
     top: 0;
@@ -25,25 +25,26 @@ nav.menu-lateral{
 
 /* Alteração do menu lateral para a versão expandida */
 nav.menu-lateral.expandir{
-    width: 270px;
+    width: 40vh;
 }
 
 /* Icone do Horizon Airlines */
 .sidebar-logo{
-    width: 100%;
-    padding-left: 12px;
-    padding-bottom: 15px;
+    padding-left: 1.5vh;
+    padding-bottom: 1.5vh;
+}
+.sidebar-logo > img{
+    width: 30vh;
 }
 
 /* Icone do botão expandir */
 .btn-expandir{
-    width: 100%;
-    padding-left: 25px;
-    padding-bottom: 15px;
+    padding-left: 3.3vh;
+    padding-bottom: 1.7vh;
 }
 .btn-expandir > i{
     color: white;
-    font-size: 24px;
+    font-size: 3.3vh;
     cursor: pointer;
 }
 
@@ -68,16 +69,15 @@ ul li.item-menu:hover{
 ul li.item-menu a{
     color: white;
     text-decoration: none;
-    font-size: 20px;
-    padding: 20px 4%;
+    font-size: 3.3vh;
     display: flex;
-    line-height: 40px;
-    padding-left: 15px;
+    line-height: 9vh;
+    padding-left: 1.5vh;
 }
 ul li.item-menu a .txt-link{
-    margin-left: 25px;
+    margin-left: 4vh;
 }
 ul li.item-menu a .icon > i{
-    font-size: 30px;
-    margin-left: 5px;
+    font-size: 4vh;
+    margin-left: 1.7vh;
 }

@@ -52,7 +52,7 @@ VALUES('${req.params[1]}', ${req.params[2]}, '${req.params[3]}', '${req.params[4
     if(connection!== undefined){
       await connection.close();
     }
-    res.send(cr);  
+    res.send(cr);
   }  
 });
 
@@ -60,8 +60,8 @@ app.get('/listarAeronaves', async (req, res) => {
   let connection;
   connection = await oracledb.getConnection(oraConnAttribs);
   let resultadoConsulta = await connection.execute(`SELECT ID_AERONAVE, MODELO, MARCA, ANO_FABRICACAO, TOTAL_DE_ASSENTOS, REF FROM AERONAVES ORDER BY ID_AERONAVE`);
-  res.send(resultadoConsulta.rows);
   await connection.close();
+  res.send(resultadoConsulta.rows);
 });
 
 app.put('/editarAeronave/:ID/:1/:2/:3/:4/:5', async (req, res) => {
@@ -147,8 +147,8 @@ app.get('/listarAeroportos', async (req, res) => {
   let connection;
   connection = await oracledb.getConnection(oraConnAttribs);
   let resultadoConsulta = await connection.execute(`SELECT * FROM AEROPORTOS ORDER BY ID_AEROPORTO`);
-  res.send(resultadoConsulta.rows);
   await connection.close();
+  res.send(resultadoConsulta.rows);
 });
 
 app.put('/editarAeroporto/:ID/:1/:2/:3/:4/:5', async (req, res) => {
@@ -209,6 +209,7 @@ app.get("/listarCidades", async(req,res)=>{
   let connection;
   connection = await oracledb.getConnection(oraConnAttribs);
   let resultadoConsulta = await connection.execute(`SELECT CIDADE, ESTADO, PAIS FROM AEROPORTOS`);
+  await connection.close();
   res.send(resultadoConsulta.rows);
 });
 

@@ -6,18 +6,12 @@ body{
   align-items: top;
   justify-content: flex-end;
   background-color: #7d7878;
-  padding-left: 50%;
-  padding-right: 56px;
-  padding-top: 35px;
+  padding: 2vh 2vh 0 12.5vh; /* Adicionado padding diretamente no body */
   transition: 0.2s;
 }
 
-body.contraido{
-  padding-left: 330px;
-}
-
 button {
-  cursor: pointer;
+  cursor: point;
 }
 
 label {
@@ -25,18 +19,10 @@ label {
   margin-bottom: 5px;
 }
 
-.aeronaves {
-  width: 80vw;
-  height: 95%;
-  border-radius: 10px;
-  background: #a9a6a6;
-}
-/* Código	Modelo	Fabricante	Ano de fabricação	Número de Assentos	Indentificação	Editar	Excluir
-
-Código	Aeroporto⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀	Sigla	Cidade⠀⠀⠀⠀	Estado	País⠀⠀⠀⠀⠀⠀⠀⠀⠀	Editar	Excluir */
-.aeroportos {
-  width: 90vw;
-  height: 95%;
+.container { 
+  width: 100%;
+  height: 96vh;
+  box-sizing: border-box;
   border-radius: 10px;
   background: #a9a6a6;
 }
