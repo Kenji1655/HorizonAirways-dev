@@ -27,7 +27,6 @@ body {
 
 .card {
   width: 900px;
-  cursor: pointer;
 }
 
 .modal-body p {
@@ -37,8 +36,16 @@ body {
 .botao-assentos {
   margin-top: 500px;
 }
-/* header {
-    height: 100px;
-    width: 100%;
-    background-color: aqua;
-} */
+
+span {
+  color: white;
+}
+
+h6 {
+  text-align: center;
+  padding-right: 800px;
+}
+
+.container_volta {
+  padding: 50px;
+}

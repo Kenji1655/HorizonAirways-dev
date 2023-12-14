@@ -76,7 +76,7 @@
                 <div class="container">
                     <div class="row">
                       <div
-                        class="col-sm-12 col-md-6 d-flex justify-content-center align-items-center"
+                        class="col-sm-12 col-md-6 d-flex justify-content-left align-items-left"
                       >
                         <p class="texto-info">Pagamento</p>
                       </div>
@@ -93,48 +93,50 @@
                                     </ul>
                                 </div>
                                 <div class="tab-content">
+                                  <!-- CARTAO CREDITO -->
                                     <div id="cartao-credito" class="tab-pane fade show active pt-3">
                                         <form role="form" onsubmit="event.preventDefault()">
                                             <div class="form-group"> <label for="nomeTitular">
-                                                </label> <input type="text" name="nomeTitular" placeholder="Nome do Titular do Cartão" required class="form-control"> </div>
+                                                </label> <input type="text" id="nomeTitular" placeholder="Nome do Titular do Cartão" required class="form-control"> </div>
                                             <div class="form-group"> <label for="cardNumber">
                                                 </label>
-                                                <div class="input-group"> <input type="text" name="numeroCartao" placeholder="Número do Cartão Válido" class="form-control" required>
+                                                <div class="input-group"> <input type="text" id="numeroCartao" placeholder="Número do Cartão Válido" class="form-control" required>
                                                     <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group mt-3">Data de Expiração<label for="dataExpiracao"></label>  
-                                                        <div class="input-group"> <input type="number" placeholder="MM" class="form-control" max="12" min="1" required> <input type="number" placeholder="AA" name="" class="form-control" max="2050" min="1970"> </div>
+                                                        <div class="input-group"> <input  id="dataExpiracao" type="number" placeholder="MM" class="form-control" max="12" min="1" required> <input type="number" placeholder="AA" name="" class="form-control" max="2050" min="1970"> </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group mt-3">CVV <i class="fa fa-question-circle d-inline"></i><label data-bs-toggle="tooltip" title="Código CVV de três dígitos no verso do seu cartão">
-                                                        </label> <input type="text" required class="form-control"> </div>
+                                                        </label> <input id="CVV" type="text" required class="form-control"> </div>
                                                 </div>
                                             </div>
                                             <div class="card-footer"> 
-                                                <button type="button" class="subscribe btn btn-primary btn-"> Confirmar Pagamento </button>
+                                                <button type="button" id="confirmarPag" class="subscribe btn btn-custom btn-" onclick="enviarCampo()"> Confirmar Pagamento </button>
                                         </form>
                                     </div>
                                 </div>
+                                <!-- PIX -->
                                 <div id="pix" class="tab-pane fade pt-3">
                                     <form role="form" onsubmit="event.preventDefault()">
-                                        <div class="form-group mb-8"> <label for="nomeTitular">
-                                            </label> <input type="text" name="nomeTitular" placeholder="Nome do Titular do Cartão" required class="form-control"> </div>
-                                        <div class="form-group"> <label for="cardNumber">
+                                        <div class="form-group mb-8"> <label for="nomePix">
+                                            </label> <input type="text" id="nomePix" placeholder="Nome Completo" required class="form-control"> </div>
+                                        <div class="form-group"> <label for="numeroCpf">
                                             </label>
-                                            <div class="input-group"> <input type="text" name="numeroCartao" placeholder="Número do Cartão Válido" class="form-control" required>
-                                                <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> </div>
+                                            <div class="input-group"> <input type="text" id="numeroCpf" placeholder="Número do CPF" class="form-control" required>
                                             </div>
                                         </div>
-                                        
+                                        <img class="qrcode" src="/frontend/assets/img/qrcode.png">
                                         <div class="card-footer"> 
-                                            <button type="button" class="subscribe btn btn-primary btn-"> Confirmar Pagamento </button>
+                                            <button type="button" id="confirmarPix" class="subscribe btn btn-custom btn-" onclick="enviarCampo()"> Confirmar Pagamento </button>
                                     </form>
-                                    <p class="text-muted"> Observação: Após clicar no botão, você será direcionado para um gateway seguro para pagamento. Após concluir o processo de pagamento, você será redirecionado de volta ao site para visualizar os detalhes do seu pedido. </p>
+                                    <p class="text-muted"> Observação: Após efetuar o pagamento, clique no botão "Confirmar Pagamento". Você será redirecionado para uma página com as informações detalhadas da sua compra. </p>
                                 </div>
+                                <!-- FIM DO PIX -->
                             </div>
                         </div>
                     </div>

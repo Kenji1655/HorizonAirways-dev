@@ -23,3 +23,29 @@ button {
   width: 900px;
 }
 
+.nav-pills .nav-link {
+  color: black; 
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-link:hover {
+    background-color: #1f3667; 
+}
+
+.nav-pills .nav-link:hover {
+  color: white;
+}
+
+.btn-custom {
+  background-color: #1f3667; 
+  color: #fff;
+}
+
+.qrcode {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.text-muted {
+  padding-top: 15px;
+}

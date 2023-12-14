@@ -1,0 +1,35 @@
+body {
+  height: 1000px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+
+.dotted-line {
+  border: 1px dashed #fff;
+}
+
+.img-fluid {
+  width: 114px;
+  height: auto;
+}
+
+.bg-top {
+  background: #1f3667;
+}
+
+h4 {
+  text-align: center;
+  padding-right: 500px;
+  padding-top: 20px;
+
+}
+
+.container {
+  padding-bottom: 20px;
+}

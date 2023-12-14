@@ -4,14 +4,15 @@ function togglePassword() {
   var eyeIcon = document.getElementById("eyeIcon");
   if (senhaInput.type === "password") {
     senhaInput.type = "text";
-    eyeIcon.classList.remove("fa-eye-slash");
-    eyeIcon.classList.add("fa-eye");
+    eyeIcon.classList.remove("bi-eye-slash");
+    eyeIcon.classList.add("bi-eye");
   } else {
     senhaInput.type = "password";
-    eyeIcon.classList.remove("fa-eye");
-    eyeIcon.classList.add("fa-eye-slash");
+    eyeIcon.classList.remove("bi-eye");
+    eyeIcon.classList.add("bi-eye-slash");
   }
 }
+
 
 // FUNCAO PARA IR AO DASHBOARD ADM
 document.addEventListener("DOMContentLoaded", function () {
@@ -24,7 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!camposPreenchidos) {
       alert("Por favor, preencha todos os campos obrigatórios.");
     } else {
-      window.location.href = "/frontend/admin.html";
+      var login_adm = document.getElementById('admin');
+      if(login_adm.checked){
+        window.location.href = 'admin.html'
+      }else{
+        window.location.href = 'home.html'
+      }
     }
   }
 

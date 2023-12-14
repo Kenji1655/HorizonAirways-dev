@@ -203,6 +203,94 @@ app.delete('/deletarAeroporto/:ID', async (req, res) => {
   }  
 });
 
+// ---------------------------- CRUD de Trechos ---------------------------------------
+app.put('/cadastrarTrecho/:1/:2', async (req, res) => {
+  let cr: CustomResponse = {status: "ERROR", message: "", payload: undefined,};
+  let connection;
+  try{
+    connection = await oracledb.getConnection(oraConnAttribs);
+    var query = `
+    INSERT INTO TRECHOS (ORIGEM, DESTINO) VALUES (${req.params[1]}, ${req.params[2]})`;
+    await connection.execute(query);
+    await connection.commit();
+    cr.status = "SUCCESS"; 
+    cr.message = "Aeronave inserida.";
+  }catch(e){
+    if(e instanceof Error){
+      cr.message = e.message;
+      console.log(e.message);
+    }else{
+      cr.message = "Erro ao conectar ao oracle. Sem detalhes";
+    }
+  }finally {
+    if(connection!== undefined){
+      await connection.close();
+    }
+    res.send(cr);
+  }  
+});
+
+app.get('/listarAeronaves', async (req, res) => {
+  let connection;
+  connection = await oracledb.getConnection(oraConnAttribs);
+  let resultadoConsulta = await connection.execute(`SELECT ID_AERONAVE, MODELO, MARCA, ANO_FABRICACAO, TOTAL_DE_ASSENTOS, REF FROM AERONAVES ORDER BY ID_AERONAVE`);
+  await connection.close();
+  res.send(resultadoConsulta.rows);
+});
+
+app.put('/editarAeronave/:ID/:1/:2/:3/:4/:5', async (req, res) => {
+  let cr: CustomResponse = {status: "ERROR", message: "", payload: undefined,};
+  let connection;
+  try{
+    connection = await oracledb.getConnection(oraConnAttribs);
+    const query = `UPDATE AERONAVES
+    SET REF = '${req.params[1]}', TOTAL_DE_ASSENTOS = ${req.params[2]}, MODELO = '${req.params[3]}', MARCA = '${req.params[4]}', ANO_FABRICACAO = ${req.params[5]}
+    WHERE ID_AERONAVE = ${req.params.ID}`;
+    await connection.execute(query);
+    await connection.commit();
+    cr.status = "SUCCESS"; 
+    cr.message = "Aeronave editada.";
+  }catch(e){
+    if(e instanceof Error){
+      cr.message = e.message;
+      console.log(e.message);
+    }else{
+      cr.message = "Erro ao conectar ao oracle. Sem detalhes";
+    }
+  }finally {
+    if(connection!== undefined){
+      await connection.close();
+    }
+    res.send(cr);  
+  }  
+});
+
+app.delete('/deletarTrecho/:ID', async (req, res) => {
+  let cr: CustomResponse = {status: "ERROR", message: "", payload: undefined,};
+  let connection;
+  try{
+    connection = await oracledb.getConnection(oraConnAttribs);
+    const query = `DELETE FROM TRECHOS WHERE ID_TRECHO = ${req.params.ID}`;
+    await connection.execute(query);
+    await connection.commit();
+    cr.status = "SUCCESS"; 
+    cr.message = "Trecho deletado.";
+  }catch(e){
+    if(e instanceof Error){
+      cr.message = e.message;
+      console.log(e.message);
+    }else{
+      cr.message = "Erro ao conectar ao oracle. Sem detalhes";
+    }
+  }finally {
+    if(connection!== undefined){
+      await connection.close();
+    }
+    res.send(cr);  
+  }  
+});
+
+
 // ------------------------------------------- Destinados a pagina do usuário ------------------------------------------
 
 app.get("/listarCidades", async(req,res)=>{
@@ -216,3 +304,34 @@ app.get("/listarCidades", async(req,res)=>{
 app.listen(port, function(){
   console.log("Servidor HTTP rodando na porta " + port);
 });
+
+
+// ------------------------------------------- Busca de voos ------------------------------------------
+app.post("/buscarVoo", async (req, res) => {
+  const dataIda = new Date(req.body.dataIda);
+  // pegar somemente a sigla (cod_iata) dos aeroportos
+  const aeroportoOrigem = req.body.origem.substring(0, 3);
+  const aeroportoDestino = req.body.destino.substring(0, 3);
+
+  console.log('dataIda=', dataIda);
+  console.log('aeroportoOrigem =', aeroportoOrigem);
+  console.log('aeroportoDestino =', aeroportoDestino);
+
+  let cr = { status: "ERROR", message: "", payload: undefined };
+
+  try {
+    const connection = await oracledb.getConnection(oraConnAttribs);
+    const resultadoConsulta = await connection.execute(
+      "SELECT V.ID_VOO, V.DTH_PARTIDA_PREVISTA, V.DTH_CHEGADA_PREVISTA, O.COD_IATA AS ORIGEM, D.COD_IATA AS DESTINO FROM VOOS V JOIN TRECHOS T ON V.TRECHO = T.ID_TRECHO JOIN AEROPORTOS O ON T.ORIGEM = O.ID_AEROPORTO JOIN AEROPORTOS D ON T.DESTINO = D.ID_AEROPORTO WHERE DTH_PARTIDA_PREVISTA = :dataIda AND O.COD_IATA = :aeroportoOrigem AND D.COD_IATA = :aeroportoDestino",
+      { dataIda, aeroportoOrigem, aeroportoDestino }
+    );
+
+    await connection.close();
+    res.send(resultadoConsulta.rows);
+  } catch (e) {
+    console.log("Erro");
+    res.send(cr);
+  }
+});
+
+

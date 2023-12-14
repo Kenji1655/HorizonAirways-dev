@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Impedir o comportamento padrão de navegação
     event.preventDefault();
     // Redirecionar para a página de login
-    window.location.href = "/frontend/login.html";
+    window.location.href = "/frontend/novoLogin.html";
   });
 });
 
@@ -154,6 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // FUNCAO PARA ENVIAR DADOS DO FORMS PARA OUTRA PAGINA
   function enviarCampo() {
     // Seu código para obter os valores do formulário
+    var tipo_viagem = document.getElementById("tipo-viagem").value;
     var origem = document.getElementById("origem").value;
     var destino = document.getElementById("destino").value;
     var dataIda = document.getElementById("data-ida").value;
@@ -166,8 +167,12 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("dataIda", dataIda);
     localStorage.setItem("dataVolta", dataVolta);
     localStorage.setItem("quantidadePassageiros", quantidadePassageiros);
+    localStorage.setItem("tipo_viagem", tipo_viagem);
   
     // Redirecionar para a página de seleção de voos
-    window.location.href = "/frontend/selecaoida.html";
+    // window.location.href = "/frontend/selecaoida.html";
   }
   
+
+
+

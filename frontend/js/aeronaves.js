@@ -1,18 +1,14 @@
-const modal = document.querySelector('.modal-container')
-const tbody = document.querySelector('tbody')
-const sModelo = document.querySelector('#m-modelo')
-const sFabricante = document.querySelector('#m-fabricante')
-const sAnoFabricacao = document.querySelector('#m-anoFabricacao')
-const sNumeroAssentos = document.querySelector('#m-numeroAssentos')
-const sReferencia = document.querySelector('#m-referencia')
-const btnSalvar = document.querySelector('#btnSalvar')
+var modal = document.querySelector('.modal-container')
+var tbody = document.querySelector('tbody')
+var sModelo = document.getElementById('m-modelo')
+var sFabricante = document.getElementById('m-fabricante')
+var sAnoFabricacao = document.querySelector('#m-anoFabricacao')
+var sNumeroAssentos = document.querySelector('#m-numAssentos')
+var sReferencia = document.querySelector('#m-numId')
+var btnSalvar = document.querySelector('#btnSalvar')
 
-let itens
-let id
-
-function sla(){
-  console.log('Conexão bem sucedida')
-}
+var itens
+var id
 
 function openModal(edit = false, index = 0) {
   modal.classList.add('active')
@@ -57,10 +53,10 @@ function insertItem(item, index) {
     <td>${item.referencia}</td>
     
     <td class="acao">
-      <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
+      <button onclick="editItem(${index})"><i class="bi bi-pencil-square"></i></button>
     </td>
     <td class="acao">
-      <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+      <button onclick="deleteItem(${index})"><i class="bi bi-trash"></i></button>
     </td>
   `
   tbody.appendChild(tr)
@@ -99,11 +95,9 @@ function loadItens(dados) {
     aux.push(dado);
   };
   itens = aux;
-  console.log(itens);
   tbody.innerHTML = ''
   itens.forEach((item, index) => {
     insertItem(item, index)
-    console.log()
   })
 }
 

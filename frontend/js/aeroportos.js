@@ -1,14 +1,14 @@
-const modal = document.querySelector('.modal-container')
-const tbody = document.querySelector('tbody')
-const sAeroporto = document.querySelector('#m-aeroporto')
-const sSigla = document.querySelector('#m-sigla')
-const sCidade = document.querySelector('#m-cidade')
-const sEstado = document.querySelector('#m-estado')
-const sPais = document.querySelector('#m-pais')
-const btnSalvar = document.querySelector('#btnSalvar')
+var modal = document.querySelector('.modal-container')
+var tbody = document.querySelector('tbody')
+var sAeroporto = document.querySelector('#m-aeroporto')
+var sSigla = document.querySelector('#m-sigla')
+var sCidade = document.querySelector('#m-cidade')
+var sEstado = document.querySelector('#m-estado')
+var sPais = document.querySelector('#m-pais')
+var btnSalvar = document.querySelector('#btnSalvar')
 
-let itens
-let id
+var itens
+var id
 
 function openModal(edit = false, index = 0) {
   modal.classList.add('active')
@@ -53,10 +53,10 @@ function insertItem(item, index) {
     <td>${item.pais}</td>
     
     <td class="acao">
-      <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
+      <button onclick="editItem(${index})"><i class="bi bi-pencil-square"></i></button>
     </td>
     <td class="acao">
-      <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+      <button onclick="deleteItem(${index})"><i class="bi bi-trash"></i></button>
     </td>
   `
   tbody.appendChild(tr)
