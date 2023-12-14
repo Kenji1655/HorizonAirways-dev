@@ -230,10 +230,10 @@ app.put('/cadastrarTrecho/:1/:2', async (req, res) => {
   }  
 });
 
-app.get('/listarAeronaves', async (req, res) => {
+app.get('/listarTrechos', async (req, res) => {
   let connection;
   connection = await oracledb.getConnection(oraConnAttribs);
-  let resultadoConsulta = await connection.execute(`SELECT ID_AERONAVE, MODELO, MARCA, ANO_FABRICACAO, TOTAL_DE_ASSENTOS, REF FROM AERONAVES ORDER BY ID_AERONAVE`);
+  let resultadoConsulta = await connection.execute(`SELECT ID_TRECHO, MODELO, MARCA, ANO_FABRICACAO, TOTAL_DE_ASSENTOS, REF FROM AERONAVES ORDER BY ID_AERONAVE`);
   await connection.close();
   res.send(resultadoConsulta.rows);
 });
