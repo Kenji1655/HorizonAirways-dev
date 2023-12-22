@@ -9,58 +9,17 @@
     <!-- Icone da pagina -->
     <link rel="icon" href="assets/img/logo.png">
     <!-- Conexão com o CSS -->
-    <link rel="stylesheet" href="assets/css/menuLateral.css">
     <link rel="stylesheet" href="assets/css/crud.css">
-    <!-- Conexão com o Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/menuLateral.css">
 </head>
 <body>
-    <!-- Configurações do menu lateral -->
-    <nav class="menu-lateral">
-        <!-- Adicionando o icone da Horizon Airlines -->
-        <div class="sidebar-logo">
-            <img src="./assets/img/logo-nome.png">
+    <!-- Tela de loading -->
+    <div class="modal-container" style="display: flex; background-color: #7d7878;;">
+        <div class="spinner-border" style="width: 4rem; height: 4rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
         </div>
-        <!-- Adicionando o icone do botão expandir -->
-        <div class="btn-expandir">
-            <i class="bi bi-list" id="btn-exp"></i>
-        </div>
-        <!-- Adicionando os icones do menu lateral -->
-        <ul>
-            <li class="item-menu ativo" id="aeronaves">
-                <a href="#">
-                    <span class="icon"><i class="bi bi-airplane"></i></span>
-                    <span class="txt-link">Aeronaves</span>
-                </a>
-            </li>
-            <li class="item-menu" id="aeroportos">
-                <a href="#">
-                    <span class="icon"><i class="bi bi-pin-map"></i></span>
-                    <span class="txt-link">Aeroportos</span>
-                </a>
-            </li>
-            <li class="item-menu" id="trechos">
-                <a href="#">
-                    <span class="icon"><i class="bi bi-map"></i></span>
-                    <span class="txt-link">Trechos</span>
-                </a>
-            </li>
-            <li class="item-menu" id="voos">
-                <a href="#">
-                    <span class="icon"><i class="bi bi-ticket-perforated"></i></span>
-                    <span class="txt-link">Voos</span>
-                </a>
-            </li>
-            <li class="item-menu" id="log-out">
-                <a href="#">
-                    <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-                    <span class="txt-link">Sair</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <div id="content"></div>
-    <!-- Conexão com o JS -->
-    <script src="js/admin.js"></script>
+    </div>
 </body>
+<!-- Conexão com o JS -->
+<script src="js/admin.js"></script>
 </html>

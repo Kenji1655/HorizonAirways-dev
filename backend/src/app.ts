@@ -203,8 +203,8 @@ app.delete('/deletarAeroporto/:ID', async (req, res) => {
   }  
 });
 
-// ---------------------------- CRUD de Trechos ---------------------------------------
-app.put('/cadastrarTrecho/:1/:2', async (req, res) => {
+// ---------------------------- CRUD de Voos ---------------------------------------
+app.put('/cadastrarVoo/:1/:2', async (req, res) => {
   let cr: CustomResponse = {status: "ERROR", message: "", payload: undefined,};
   let connection;
   try{
@@ -230,21 +230,38 @@ app.put('/cadastrarTrecho/:1/:2', async (req, res) => {
   }  
 });
 
-app.get('/listarTrechos', async (req, res) => {
+app.get('/listarVoos', async (req, res) => {
   let connection;
   connection = await oracledb.getConnection(oraConnAttribs);
-  let resultadoConsulta = await connection.execute(`SELECT ID_TRECHO, MODELO, MARCA, ANO_FABRICACAO, TOTAL_DE_ASSENTOS, REF FROM AERONAVES ORDER BY ID_AERONAVE`);
+  let resultadoConsulta = await connection.execute(`
+  SELECT
+    VOOS.ID_VOO,
+    ORIGEM.NOME_OFICIAL,
+    DESTINO.NOME_OFICIAL,
+    VOOS.DTH_PARTIDA_PREVISTA,
+    VOOS.DTH_CHEGADA_PREVISTA,
+    AERONAVES.REF
+  FROM
+    VOOS
+  JOIN
+    TRECHOS ON TRECHOS.ID_TRECHO = VOOS.TRECHO
+  JOIN
+    AERONAVES ON AERONAVES.ID_AERONAVE = VOOS.AERONAVE
+  JOIN
+    AEROPORTOS ORIGEM ON ORIGEM.ID_AEROPORTO = TRECHOS.ORIGEM
+  JOIN
+    AEROPORTOS DESTINO ON DESTINO.ID_AEROPORTO = TRECHOS.DESTINO`);
   await connection.close();
   res.send(resultadoConsulta.rows);
 });
 
-app.put('/editarAeronave/:ID/:1/:2/:3/:4/:5', async (req, res) => {
+app.put('/editarTrecho/:ID/:1/:2', async (req, res) => {
   let cr: CustomResponse = {status: "ERROR", message: "", payload: undefined,};
   let connection;
   try{
     connection = await oracledb.getConnection(oraConnAttribs);
     const query = `UPDATE AERONAVES
-    SET REF = '${req.params[1]}', TOTAL_DE_ASSENTOS = ${req.params[2]}, MODELO = '${req.params[3]}', MARCA = '${req.params[4]}', ANO_FABRICACAO = ${req.params[5]}
+    SET REF = '${req.params[1]}', TOTAL_DE_ASSENTOS = ${req.params[2]}}
     WHERE ID_AERONAVE = ${req.params.ID}`;
     await connection.execute(query);
     await connection.commit();
@@ -301,12 +318,6 @@ app.get("/listarCidades", async(req,res)=>{
   res.send(resultadoConsulta.rows);
 });
 
-app.listen(port, function(){
-  console.log("Servidor HTTP rodando na porta " + port);
-});
-
-
-// ------------------------------------------- Busca de voos ------------------------------------------
 app.post("/buscarVoo", async (req, res) => {
   const dataIda = new Date(req.body.dataIda);
   // pegar somemente a sigla (cod_iata) dos aeroportos
@@ -335,3 +346,6 @@ app.post("/buscarVoo", async (req, res) => {
 });
 
 
+app.listen(port, function(){
+  console.log("Servidor HTTP rodando na porta " + port);
+});

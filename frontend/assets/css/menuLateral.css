@@ -25,7 +25,7 @@ nav.menu-lateral{
 
 /* Alteração do menu lateral para a versão expandida */
 nav.menu-lateral.expandir{
-    width: 40vh;
+    width: 35vh;
 }
 
 /* Icone do Horizon Airlines */
@@ -52,6 +52,7 @@ nav.menu-lateral.expandir{
 ul{
     height: 100%;
     list-style-type: none;
+    padding-left: 0;
 }
 
 /* Configurações de escurecer os itens da sidebar selecionados e com o mouse em cima */
@@ -69,7 +70,7 @@ ul li.item-menu:hover{
 ul li.item-menu a{
     color: white;
     text-decoration: none;
-    font-size: 3.3vh;
+    font-size: 2.7vh;
     display: flex;
     line-height: 9vh;
     padding-left: 1.5vh;

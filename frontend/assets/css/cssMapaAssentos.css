@@ -1,101 +1,101 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-size: 13px;
-    background: lightgrey;
-  }
-  
-  .plane {
-    margin: 20px auto;
-    max-width: 300px;
-    background: white;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-  }
-  
-  .select {
-    height: 250px;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
-  
-  .select h1 {
-    width: 60%;
-    margin: 100px auto 35px auto;
-  }
-  
-  .exit {
-    position: relative;
-    height: 50px;
-  }
-  .exit:before, .exit:after {
-    content: "EXIT";
-    font-size: 14px;
-    line-height: 18px;
-    padding: 0px 2px 2px 2px;
-    display: block;
-    position: absolute;
-    background: red;
-    color: white;
-    top: 50%;
-    transform: translate(0, -50%);
-    border-radius: 5px;
-  }
-  .exit:before {
-    left: 10px;
-  }
-  .exit:after {
-    right: 10px;
-  }
-  
-  ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .seats {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-  }
-  
-  .seat {
-    display: flex;
-    flex: 0 0 14.28%;
-    padding: 5px;
-    position: relative;
-  }
-  
-  .seat label {
-    display: block;
-    position: relative;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bolder;
-    line-height: 1.5rem;
-    padding: 4px 0;
-    background: #5bfc60;
-    border-radius: 5px; 
-    color: black; 
-  }
-  
-  .seat label:hover {
-    cursor: pointer;
-    box-shadow: 0 0 0px 2px green;
-  }
-  
-  .seat:nth-child(3) {
-    margin-right: 14%;
-  }
-  .seat input[type=checkbox] {
-    position: absolute;
-  }
-  .seat input[type=checkbox]:checked + label {
-    background: #656e65;
-  }
+*{
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 13px;
+  background: lightgrey;
+}
+
+.plane {
+  margin: 20px auto;
+  max-width: 300px;
+  background: white;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.select {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.select h1 {
+  width: 60%;
+  margin: 100px auto 35px auto;
+}
+
+.exit {
+  position: relative;
+  height: 50px;
+}
+.exit:before, .exit:after {
+  content: "EXIT";
+  font-size: 14px;
+  line-height: 18px;
+  padding: 0px 2px 2px 2px;
+  display: block;
+  position: absolute;
+  background: red;
+  color: white;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 5px;
+}
+.exit:before {
+  left: 10px;
+}
+.exit:after {
+  right: 10px;
+}
+
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.seats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.seat {
+  display: flex;
+  flex: 0 0 14.28%;
+  padding: 5px;
+  position: relative;
+}
+
+.seat label {
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bolder;
+  line-height: 1.5rem;
+  padding: 4px 0;
+  background: #5bfc60;
+  border-radius: 5px; 
+  color: black; 
+}
+
+.seat label:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0px 2px green;
+}
+
+.seat:nth-child(3) {
+  margin-right: 14%;
+}
+.seat input[type=checkbox] {
+  position: absolute;
+}
+.seat input[type=checkbox]:checked + label {
+  background: #656e65;
+}

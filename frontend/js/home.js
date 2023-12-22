@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Impedir o comportamento padrão de navegação
     event.preventDefault();
     // Redirecionar para a página de login
-    window.location.href = "/frontend/novoLogin.html";
+    window.location.href = "/frontend/login.html";
   });
 });
 
